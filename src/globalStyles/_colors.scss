@@ -1,0 +1,131 @@
+
+//$colorBgPrimary: #101010;
+$colorBgPrimary: #101215;
+$colorBgSurface: #5f3845;
+$colorBgSurfaceSecondary: #151515;
+$colorBgButtonPrimary: #351010;
+$colorBgSuccess: #a0f0a0;
+$colorBgError: #f0b0b0;
+
+$colorTextPrimary: #909090;
+$colorTextFocus: #b0b0b0;
+$colorTextError: #aa0000;
+$colorTextLink: #9090ff;
+
+$colorBorderPrimary: #909090;
+$colorBorderSecondary: #454545;
+$colorBorderFocus: #b0b0b0;
+$colorBorderError: #aa0000;
+
+$colorShadowPrimary: #c0c0c0;
+
+
+@mixin colorTextPrimary {
+  color: $colorTextPrimary;
+  stroke: $colorTextPrimary;
+  fill: $colorTextPrimary;
+}
+@mixin colorTextFocus {
+  color: $colorTextFocus;
+  stroke: $colorTextFocus;
+  fill: $colorTextFocus;
+}
+@mixin colorTextError {
+  color: $colorTextError;
+  stroke: $colorTextError;
+  fill: $colorTextError;
+}
+@mixin colorTextLink {
+  color: $colorTextLink;
+}
+@mixin colorTextWhite {
+  color: white;
+  stroke: white;
+  fill: white;
+}
+@mixin colorTextBlack {
+  color: black;
+  stroke: black;
+  fill: black;
+}
+
+@mixin colorBorderPrimary {
+  border-color: $colorBorderPrimary;
+}
+@mixin colorBorderFocus {
+  border-color: $colorBorderFocus;
+}
+
+
+.color-bg-primary {
+  background-color: $colorBgPrimary;
+}
+.color-bg-surface {
+  background-color: $colorBgSurface;
+}
+.color-bg-surface-secondary {
+  background-color: $colorBgSurfaceSecondary;
+}
+.color-bg-button-primary {
+  background-color: $colorBgButtonPrimary;
+}
+.color-bg-success {
+  background-color: $colorBgSuccess;
+}
+.color-bg-error {
+  background-color: $colorBgError;
+}
+.color-bg-inherit {
+  background-color: inherit;
+}
+.color-bg-white {
+  background-color: white;
+}
+
+.color-text-primary {
+  @include colorTextPrimary;
+}
+.color-text-focus {
+  @include colorTextFocus;
+}
+.color-text-error {
+  @include colorTextError;
+}
+.color-text-white {
+  @include colorTextWhite;
+}
+.color-text-black {
+  @include colorTextBlack;
+}
+.color-text-link {
+  @include colorTextLink;
+}
+a {
+  @include colorTextLink;
+}
+
+.color-border-primary {
+  border-color: $colorBorderPrimary;
+}
+.color-border-focus {
+  border-color: $colorBorderFocus;
+}
+.color-border-error {
+  border-color: $colorBorderError;
+}
+
+
+
+.background-opacity-gradient {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), $colorBgPrimary, $colorBgPrimary);
+}
+
+.color-overlay-bg {
+  background-color: black;
+  opacity: .7;
+}
+
+.box-shadow {
+  box-shadow: 3px 3px 6px $colorShadowPrimary;
+}
+

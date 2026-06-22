@@ -1,0 +1,14 @@
+@use '../globalStyles/colors' as colors;
+
+.glassBackground {
+  background: rgba(colors.$colorBgPrimary, .3);
+  backdrop-filter: blur(18px);
+}
+.glassContainer {
+  z-index: 1;
+}
+
+.contentContainerBg {
+  background: rgba(colors.$colorBgPrimary, .8);
+  box-shadow: 0 0 15px rgba(#000, .1);
+}

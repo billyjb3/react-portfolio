@@ -1,0 +1,57 @@
+@use 'colors';
+
+$borderSize: 1.5px;
+$borderRadiusSm: 3px;
+$borderRadiusMd: 6px;
+$borderRadiusLg: 12px;
+
+@mixin borderRadiusSm {
+  border-radius: $borderRadiusSm;
+}
+@mixin borderRadiusMd {
+  border-radius: $borderRadiusMd;
+}
+@mixin borderRadiusLg {
+  border-radius: $borderRadiusLg;
+}
+@mixin borderLine {
+  border: $borderSize solid;
+}
+
+.border {
+  @include borderLine;
+  @include colors.colorBorderPrimary;
+}
+.border-b {
+  border-bottom: $borderSize solid;
+  @include colors.colorBorderPrimary;
+}
+.border-t {
+  border-top: $borderSize solid;
+  @include colors.colorBorderPrimary;
+}
+.border-lr {
+  border-left: $borderSize solid;
+  border-right: $borderSize solid;
+  @include colors.colorBorderPrimary;
+}
+.border-radius-sm {
+  @include borderRadiusSm;
+}
+.border-radius-lg {
+  @include borderRadiusLg;
+}
+
+.border-hover:hover {
+  @include borderLine;
+}
+
+.border-fade-lr {
+  border-image: linear-gradient(to right, transparent, colors.$colorBorderSecondary, transparent) 1;
+}
+.border-fade-r {
+  border-image: linear-gradient(to right, colors.$colorBorderSecondary, transparent) 1;
+}
+.border-fade-lr-focus {
+  border-image: linear-gradient(to right, transparent, colors.$colorBorderFocus, transparent) 1;
+}

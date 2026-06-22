@@ -1,0 +1,15 @@
+
+$footerColor: #90959a;
+.footerMain {
+  background-color: $footerColor;
+  //box-shadow:
+  //        0 -1px 3px rgba($footerColor, .9),
+  //        0 -24px 6px rgba($footerColor, .6),
+  //        0 -48px 12px rgba($footerColor, .4);
+}
+
+.footerLayer {
+  background: linear-gradient(to top, $footerColor, rgba($footerColor, .1));
+  width: 100%;
+  height: 120px;
+}

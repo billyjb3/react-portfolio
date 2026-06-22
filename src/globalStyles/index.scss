@@ -1,0 +1,57 @@
+@use 'colors';
+@use 'spacing';
+@use 'text';
+@use 'borders';
+@use 'layout';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  //background-image: linear-gradient(to right, rgba(#000, .65), rgba(#000, .65)), url('/pawel-czerwinski-prMn9KINLtI-unsplash.jpg');
+  //background-size: cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.spin {
+  animation: spin 3s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg); /* Starting point of the rotation */
+  }
+  to {
+    transform: rotate(360deg); /* Ending point (a full circle) */
+  }
+}
+
+.top-z {
+  z-index: 999;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
+
+.box-shadow-card {
+  box-shadow:
+          inset 1px 1px rgba(#fff, .40), // sharp tl light reflection
+          inset -2px -2px 3px rgba(#000, .85), // sharp br shadow
+          //0 0 12px 3px rgba(0, 0, 0, .02), // all around shadow
+          6px 6px 18px rgba(#fff, .05), // br main shadow
+          12px 12px 12px rgba(#000, .3),
+          //inset -12px -12px 12px rgba(#fff, .03), // br inset shadow
+          inset 14px 14px 12px rgba(#000, .35); // tl main shadow
+}
