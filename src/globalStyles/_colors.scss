@@ -1,19 +1,24 @@
 
 //$colorBgPrimary: #101010;
 $colorBgPrimary: #101215;
-$colorBgSurface: #5f3845;
+$colorBgSurface: #121317;
 $colorBgSurfaceSecondary: #151515;
 $colorBgButtonPrimary: #351010;
 $colorBgSuccess: #a0f0a0;
 $colorBgError: #f0b0b0;
 
-$colorTextPrimary: #909090;
+$colorTextPrimary: #9090a0;
+//$colorTextPrimary: #b0c0e0;
+//$colorTextAccent: #4090f0;
+$colorTextAccent: #b0c0e0;
 $colorTextFocus: #b0b0b0;
 $colorTextError: #aa0000;
 $colorTextLink: #9090ff;
 
 $colorBorderPrimary: #909090;
-$colorBorderSecondary: #454545;
+//$colorBorderPrimary: white;
+//$colorBorderSecondary: #454545;
+$colorBorderSecondary: #909090;
 $colorBorderFocus: #b0b0b0;
 $colorBorderError: #aa0000;
 
@@ -24,6 +29,11 @@ $colorShadowPrimary: #c0c0c0;
   color: $colorTextPrimary;
   stroke: $colorTextPrimary;
   fill: $colorTextPrimary;
+}
+@mixin colorTextAccent {
+  color: $colorTextAccent;
+  stroke: $colorTextAccent;
+  fill: $colorTextAccent;
 }
 @mixin colorTextFocus {
   color: $colorTextFocus;
@@ -84,6 +94,9 @@ $colorShadowPrimary: #c0c0c0;
 
 .color-text-primary {
   @include colorTextPrimary;
+}
+.color-text-accent {
+  @include colorTextAccent;
 }
 .color-text-focus {
   @include colorTextFocus;

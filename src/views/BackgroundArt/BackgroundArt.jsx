@@ -23,10 +23,16 @@ const BackgroundArt = () => {
       const circleChance = 50;
       const arcSpeed = .05;
       const spacing = 20;
+      const waveSpeed = 1; // down y-axis
+      const waveWidth = 240; // width relative to x-axis in pixels
+      const waveInterval = 9000; // ms until a new wave is created;
+      const waveSlope = -1;
+      const waveHeight = spacing / 2;
 
       // sizing values. change on window resize
       let particles = [];
       let movingParticles = [];
+      let waves = [];
       let w = canvas.width;
       let h = canvas.height;
       let movingCount;
@@ -75,9 +81,14 @@ const BackgroundArt = () => {
         const j = Math.ceil(h / spacing);
         for (let x = 0; x < i; x++) {
           for (let y = 0; y < j; y++) {
+            const xi = x * spacing;
+            const yi = y * spacing;
             particles.push({
-              x: x * spacing,
-              y: y * spacing,
+              xi,
+              yi,
+              x: xi,
+              y: yi,
+              ...(x === 10 && y === 10 ? { log: true } : {}),
             });
           }
         }
@@ -96,20 +107,52 @@ const BackgroundArt = () => {
         return circle;
       }
 
-      const render = () => {
+      const getWave = (delta) => {
+        // console.log('getWave delta:' + delta);
+        return {
+          b: 0,
+          delta,
+        };
+      };
+
+      const render = (delta) => {
+        // console.log(delta);
         if (!particles.length) createParticles();
         if (w !== canvas.width || h !== canvas.height) setSizing();
+        // if (!waves.length) waves.push(getWave(0));
         context.clearRect(0, 0, w, h);
 
-        const circleDraw = Math.floor(Math.random() * 100) < circleChance;
+        // const circleDraw = Math.floor(Math.random() * 100) < circleChance;
         // if (circleDraw) circles.push(getCircle());
 
         particles.forEach((particle) => {
-          const { x, y } = particle;
+          const { x, y, yi } = particle;
           context.beginPath();
           context.arc(x, y, 1, 0, Math.PI * 2);
           context.fillStyle = '#303030';
           context.fill();
+
+          waves.forEach((wave, i) => {
+            const xfront = (yi - wave.b) / waveSlope;
+            const xback = xfront - waveWidth;
+            // const yfront = waveSlope * x + wave.b;
+            // const yback = yfront + waveSlope * waveWidth;
+            // const isInWave = x >= xback && x <= xfront;
+
+            // if (isInWave) {
+            //   const xw = xfront - x;
+            //   const xww = Math.abs(xw - (waveWidth / 2));
+            //   const m = waveHeight / (waveWidth / 2);
+            //   const dy = xww * -m + waveHeight;
+            //   // const xww = xw - (waveWidth / 2);
+            //   // const a = Math.pow(waveWidth / 2, 2);
+            //   // const b = Math.pow(xww, 2);
+            //   // const dy = Math.sqrt(a - b);
+            //   particle.y = yi - dy;
+            //
+            //   if (i === 0 && waves.length > 10) wave[delta] = true;
+            // }
+          });
         });
 
         // TODO: could be cool to have them randomly disappear on some dot opposed to only disappearing on the edge
@@ -125,6 +168,20 @@ const BackgroundArt = () => {
             movingParticles[i] = getMovingParticle();
           }
         });
+
+        // waves.forEach((wave) => {
+        //   wave.b += waveSpeed;
+        // });
+        //
+        // if (waves.length > 10) {
+        //   if (waves[0][delta]) delete waves[0][delta]
+        //   else waves.splice(0, 1);
+        // }
+
+        // const lastWaveDelta = waves[waves.length - 1].delta;
+        // if (delta - lastWaveDelta >= waveInterval) {
+        //   waves.push(getWave(delta));
+        // }
 
         circles.forEach((circle) => {
           const {

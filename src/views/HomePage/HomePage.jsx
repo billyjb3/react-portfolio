@@ -1,11 +1,18 @@
 import React from 'react';
+import HeroSection from './HeroSection';
 import AboutSection from './AboutSection';
+import ProjectsSection from './ProjectsSection';
+import WingsPageDivider from '../../svgArt/WingsPageDivider/WingsPageDivider';
+import './styles.scss';
 
 const HomePage = () => {
   return (
-    <div className="content-container margin-3-t margin-auto-lr">
+    <>
+      <HeroSection />
+      <WingsPageDivider />
       <AboutSection />
-    </div>
+      <ProjectsSection />
+    </>
   );
 };
 

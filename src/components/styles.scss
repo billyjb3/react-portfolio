@@ -12,3 +12,14 @@
   background: rgba(colors.$colorBgPrimary, .8);
   box-shadow: 0 0 15px rgba(#000, .1);
 }
+
+.techCard {
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.buttonPrimary {
+  background-color: inherit;
+  min-width: 160px;
+  cursor: pointer;
+}

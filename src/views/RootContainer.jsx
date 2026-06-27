@@ -7,7 +7,11 @@ import HomePage from './HomePage/HomePage';
 import ContactPage from './ContactPage/ContactPage';
 import ProjectsPage from './ProjectsPage/ProjectsPage';
 
-// TODO: explore the idea of having light rays coming in from the top right corner of the page. Possibly through a subtle window design
+// TODO: add a page like option. will need backend
+// TODO: add wave like and other shaped section dividers
+// TODO: make custom scroll bar
+// TODO: maybe have canvas colors change as you scroll
+// TODO: create the hero section tech cards to be an interactive slot machine design?
 const RootContainer = () => {
   return (
     <div
@@ -17,7 +21,7 @@ const RootContainer = () => {
       <Router indexRedirect="home">
         <NavBar />
         <BackgroundArt />
-        <div className="flex-grow pad-4-tb pad-3-lr-sm-down pad-4-lr-md-up top-z">
+        <div className="flex-grow pad-4-tb top-z">
           <PageRoute path="/home" Component={HomePage} />
           <PageRoute path="/contact" Component={ContactPage} />
           <PageRoute path="/projects" Component={ProjectsPage} />
@@ -31,4 +35,3 @@ const RootContainer = () => {
 export default RootContainer;
 
 
-// TODO: sleepless nights novelest: use layered divs to create a "beach" looking thing on the bottom and fade it into the cool blue background.. and have it fade out of the background towards the top?
