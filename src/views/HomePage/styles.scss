@@ -17,14 +17,12 @@
   height: auto;
 }
 
-.scrollContainer {
-  //width: 20px;
+.sideNavContainer {
   height: 100vh;
   position: fixed;
   top: 0;
-  right: 0;
 }
 
-.scrollerBackground {
+.sideNavBackground {
   background: rgba(colors.$colorBgPrimary, .8);
 }

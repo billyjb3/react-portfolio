@@ -16,6 +16,9 @@ import IconGithub from './IconGithub';
 import IconGmail from './IconGmail';
 import IconGSU from './IconGSU';
 import IconMaze from './IconMaze';
+import IconDockRight from './IconDockRight';
+import IconDockLeft from './IconDockLeft';
+import IconDockTop from './IconDockTop';
 
 export {
   IconJavascript,
@@ -36,4 +39,7 @@ export {
   IconGmail,
   IconGSU,
   IconMaze,
+  IconDockRight,
+  IconDockLeft,
+  IconDockTop,
 };

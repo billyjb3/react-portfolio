@@ -19,20 +19,20 @@ import {
   IconGithub,
   IconGmail,
 } from '../../icons';
+import { heroId } from './navConfig';
 
 const HeroSection = (props) => {
-  const { registerScrollable } = props;
+  const { sectionScroller: { registerRef } } = props;
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    if (sectionRef.current) registerScrollable(sectionRef);
+    if (sectionRef.current) registerRef(sectionRef, heroId);
   }, [sectionRef.current]);
 
   return (
     <div
       ref={sectionRef}
       className="content-container margin-auto-lr pad-4-tb heroContainer text-align-center"
-      data-scroller-label="Home"
     >
       <Heading level={1}>
         Hello, I'm <span className="color-text-accent">Billy</span>

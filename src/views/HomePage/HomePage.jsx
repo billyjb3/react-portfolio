@@ -1,42 +1,51 @@
 import React, { useState, useEffect, useRef, createContext } from 'react';
-import PageScrollController from './PageScrollController';
+import TopNav from './TopNav';
+import SideNav from './SideNav';
 import HeroSection from './HeroSection';
 import AboutSection from './AboutSection';
 import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
 import WingsPageDivider from '../../svgArt/SmokePageDivider/SmokePageDivider';
 import PuddlePageDivider from '../../svgArt/PuddlePageDivider/PuddlePageDivider';
+import { navConfig } from './navConfig';
+import { useSectionScroller } from '../../hooks';
 import './styles.scss';
 
 const HomePage = () => {
+  const [navPosition, setNavPosition] = useState('right');
   const [scrollerWidth, setScrollerWidth] = useState(0);
-  const scrollableRefs = useRef([]);
-
-  const registerScrollable = (ref) => {
-    if (!scrollableRefs.current.includes(ref)) scrollableRefs.current.push(ref);
-  };
+  const sectionScroller = useSectionScroller();
 
   return (
     <>
-      <PageScrollController
-        scrollerWidth={scrollerWidth}
-        setScrollerWidth={setScrollerWidth}
-        scrollableRefs={scrollableRefs}
-      />
+      {navPosition === 'top' ? (
+        <TopNav
+          navConfig={navConfig}
+          sectionScroller={sectionScroller}
+          setNavPosition={setNavPosition}
+        />
+      ) : (
+        <SideNav
+          navConfig={navConfig}
+          sectionScroller={sectionScroller}
+          isLeft={navPosition === 'left'}
+          setNavPosition={setNavPosition}
+        />
+      )}
       <WingsPageDivider isBottom={true} />
       <HeroSection
         scrollerWidth={scrollerWidth}
-        registerScrollable={registerScrollable}
+        sectionScroller={sectionScroller}
       />
       <WingsPageDivider />
       <AboutSection
         scrollerWidth={scrollerWidth}
-        registerScrollable={registerScrollable}
+        sectionScroller={sectionScroller}
       />
       <WingsPageDivider isBottom={true} />
-      <ProjectsSection  registerScrollable={registerScrollable} />
+      <ProjectsSection sectionScroller={sectionScroller} />
       <WingsPageDivider />
-      <ContactSection registerScrollable={registerScrollable} />
+      <ContactSection sectionScroller={sectionScroller} />
     </>
   );
 };

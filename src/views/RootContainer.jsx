@@ -1,6 +1,4 @@
 import React from 'react';
-import { NavBar } from './NavBar';
-import Footer from './Footer/Footer';
 import { Router, PageRoute } from '@billyjb3/global-react';
 import BackgroundArt from './BackgroundArt/BackgroundArt';
 import HomePage from './HomePage/HomePage';
@@ -20,14 +18,12 @@ const RootContainer = () => {
       className="height-page color-text-primary flex flex-column color-bg-primary body"
     >
       <Router indexRedirect="home">
-        {/*<NavBar />*/}
         <BackgroundArt />
         <div className="flex-grow top-z" id="displaySection">
           <PageRoute path="/home" Component={HomePage} />
           <PageRoute path="/contact" Component={ContactPage} />
           <PageRoute path="/projects" Component={ProjectsPage} />
         </div>
-        <Footer />
       </Router>
     </div>
   );

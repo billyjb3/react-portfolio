@@ -1,19 +1,19 @@
 import React, { useEffect, useRef } from 'react'
 import { Heading, ContentContainer } from '../../components';
+import { projectsId } from './navConfig';
 
 const ProjectsSection = (props) => {
-  const { registerScrollable } = props;
+  const { sectionScroller: { registerRef } } = props;
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    if (sectionRef.current) registerScrollable(sectionRef);
+    if (sectionRef.current) registerRef(sectionRef, projectsId);
   }, [sectionRef.current]);
 
   return (
     <div
       ref={sectionRef}
       className="sectionContainer content-container margin-auto-lr pad-4-tb"
-      data-scroller-label="Projects"
     >
       <Heading level={2} className="pad-1-b pad-4-t margin-3-b border-b-1 border-fade-r">
         Projects

@@ -7,13 +7,14 @@ import {
 import { Heading, ContentContainer } from '../../components';
 import { IconGmail, IconLinkedin, IconGithub } from '../../icons';
 import { messageFormConfig } from '../../utils';
+import { contactId } from './navConfig';
 
 const ContactSection = (props) => {
-  const { registerScrollable } = props;
+  const { sectionScroller: { registerRef } } = props;
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    if (sectionRef.current) registerScrollable(sectionRef);
+    if (sectionRef.current) registerRef(sectionRef, contactId);
   }, [sectionRef.current]);
 
   return (
@@ -21,7 +22,6 @@ const ContactSection = (props) => {
       <div
         ref={sectionRef}
         className="content-container margin-auto-lr pad-4-tb"
-        data-scroller-label="Contact"
       >
         <Heading
           level={2}

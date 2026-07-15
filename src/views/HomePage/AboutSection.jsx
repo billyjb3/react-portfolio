@@ -16,15 +16,15 @@ import {
   IconPixi,
   IconGSU,
 } from '../../icons';
+import { aboutId } from './navConfig';
 
 // TODO: have tech section with a button that can switch between text and icons
-// TODO: make education look like diplomas
 const AboutSection = (props) => {
-  const { registerScrollable } = props;
+  const { sectionScroller: { registerRef } } = props;
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    if (sectionRef.current) registerScrollable(sectionRef);
+    if (sectionRef.current) registerRef(sectionRef, aboutId);
   }, [sectionRef.current]);
 
   return (
@@ -32,7 +32,6 @@ const AboutSection = (props) => {
       <div
         ref={sectionRef}
         className="content-container margin-auto-lr pad-4-tb"
-        data-scroller-label="About"
       >
         <Heading
           level={2}
