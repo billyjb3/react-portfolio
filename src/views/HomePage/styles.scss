@@ -1,6 +1,11 @@
+@use '../../globalStyles/colors' as colors;
 
 .heroContainer {
-  height: 80vh;
+  min-height: 80vh;
+}
+
+.sectionContainer {
+  min-height: 90vh;
 }
 
 .diploma {
@@ -10,4 +15,16 @@
 .projectImage {
   width: 100%;
   height: auto;
+}
+
+.scrollContainer {
+  //width: 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.scrollerBackground {
+  background: rgba(colors.$colorBgPrimary, .8);
 }

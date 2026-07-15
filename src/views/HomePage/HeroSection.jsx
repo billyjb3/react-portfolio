@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ButtonIcon, Marquee } from '@billyjb3/global-react';
 import { Heading, TechCard, ButtonPrimary } from '../../components';
 import {
@@ -20,9 +20,20 @@ import {
   IconGmail,
 } from '../../icons';
 
-const HeroSection = () => {
+const HeroSection = (props) => {
+  const { registerScrollable } = props;
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (sectionRef.current) registerScrollable(sectionRef);
+  }, [sectionRef.current]);
+
   return (
-    <div className="content-container margin-auto-lr pad-4-t heroContainer text-align-center">
+    <div
+      ref={sectionRef}
+      className="content-container margin-auto-lr pad-4-tb heroContainer text-align-center"
+      data-scroller-label="Home"
+    >
       <Heading level={1}>
         Hello, I'm <span className="color-text-accent">Billy</span>
       </Heading>

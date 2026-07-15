@@ -24,7 +24,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
   lightTopRight2: {
@@ -32,7 +31,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
   lightTopLeft1: {
@@ -40,7 +38,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
   lightTopLeft2: {
@@ -48,7 +45,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
   darkTopRight1: {
@@ -56,7 +52,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
   darkTopRight2: {
@@ -64,7 +59,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
   darkTopRight3: {
@@ -72,7 +66,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
   darkTopLeft1: {
@@ -80,7 +73,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
   darkTopLeft2: {
@@ -88,7 +80,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
   darkTopLeft3: {
@@ -96,7 +87,6 @@ const animap = {
     options: {
       duration: getRandomTime(),
       iterations: Infinity,
-      // easing: 'ease-in-out'
     },
   },
 }

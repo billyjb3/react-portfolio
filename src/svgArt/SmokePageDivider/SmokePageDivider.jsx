@@ -1,18 +1,17 @@
 import React, { useRef, useEffect } from 'react';
 import animap from './config';
 
-const WingsPageDivider = () => {
+const SmokePageDivider = (props) => {
+  const { isBottom } = props;
   const pathRefs = useRef([]);
 
   const addRef = (element) => {
     element
     && !pathRefs.current.includes(element)
     && pathRefs.current.push(element);
-    // console.log(element?.id);
   }
 
   useEffect(() => {
-    console.log(animap);
     if (pathRefs?.current?.length) {
       pathRefs.current.forEach((element) => {
         const { frames, options } = animap[element.id];
@@ -25,7 +24,12 @@ const WingsPageDivider = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1000 100"
-      style={{ width: '100%', height: '200px', display: 'block' }}
+      style={{
+        width: '100%',
+        height: '200px',
+        display: 'block',
+        ...(isBottom ? { transform: 'scaleY(-1)' } : {}),
+      }}
       preserveAspectRatio="none"
     >
       <g fill="#b0c0e0" strokeWidth="0">
@@ -48,4 +52,4 @@ const WingsPageDivider = () => {
   );
 };
 
-export default WingsPageDivider;
+export default SmokePageDivider;

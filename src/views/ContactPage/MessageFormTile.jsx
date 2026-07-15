@@ -6,10 +6,9 @@ import {
   FormSubmitButton,
   SpinnerOverlay,
 } from '@billyjb3/global-react';
-import formConfig from './formConfig';
+import { messageFormConfig } from '../../utils';
 
 const MessageFormTile = () => {
-  console.log(formConfig);
   return (
     <div className="col-8-md-up pad-3-r">
       <SpinnerOverlay>
@@ -27,7 +26,7 @@ const MessageFormTile = () => {
         </div>
         <Form className="row">
           <div className="col-8-md-up">
-            {formConfig.map((config) => (
+            {messageFormConfig.map((config) => (
               <FormIntegratedLabelTextInput {...config} />
             ))}
           </div>

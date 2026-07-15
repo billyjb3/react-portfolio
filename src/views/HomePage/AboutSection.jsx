@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Heading, TechCard, ContentContainer } from '../../components';
 import {
   IconJavascript,
@@ -19,13 +19,24 @@ import {
 
 // TODO: have tech section with a button that can switch between text and icons
 // TODO: make education look like diplomas
-const AboutSection = () => {
+const AboutSection = (props) => {
+  const { registerScrollable } = props;
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (sectionRef.current) registerScrollable(sectionRef);
+  }, [sectionRef.current]);
+
   return (
-    <ContentContainer className="pad-4-tb">
-      <div className="content-container margin-auto-lr pad-4-tb">
+    <ContentContainer className="sectionContainer pad-4-tb">
+      <div
+        ref={sectionRef}
+        className="content-container margin-auto-lr pad-4-tb"
+        data-scroller-label="About"
+      >
         <Heading
           level={2}
-          className="pad-1-b margin-3-b border-b border-fade-r"
+          className="pad-1-b margin-3-b border-b-1 border-fade-r"
         >
           About
         </Heading>

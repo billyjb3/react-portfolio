@@ -19,7 +19,20 @@
 }
 
 .buttonPrimary {
-  background-color: inherit;
+  background-color: colors.$colorBgButtonPrimary;
+  border-color: colors.$colorBorderPrimary;
+  color: colors.$colorTextPrimary;
   min-width: 160px;
   cursor: pointer;
+  transition: color .2s, border-color .2s, background-color .2s;
+}
+.buttonPrimary:hover {
+  color: colors.$colorTextAccent;
+  border-color: colors.$colorBorderFocus;
+  background-color: colors.$colorBgButtonPrimaryFocus;
+}
+.buttonText {
+  background-color: inherit;
+  cursor: pointer;
+  border: none;
 }

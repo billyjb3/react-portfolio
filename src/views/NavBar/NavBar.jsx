@@ -10,7 +10,7 @@ import {
 const NavBar = () => {
 
   return (
-    <div className={`border-b border-fade-lr color-bg-surface top-z`}>
+    <div className={`border-b-1 border-fade-lr color-bg-surface top-z`}>
       <div className="pad-3-tb position-relative flex flex-justify-center">
         <span>
           <NavButton to="/home">Home</NavButton>

@@ -1,0 +1,18 @@
+//@use '@billyjb3/global-styles/src/borders' as borders;
+@use '../globalStyles/colors' as colors;
+
+// TODO: figure out how to import the above
+
+.button-primary {
+  background-color: colors.$colorBgButtonPrimary;
+  border-color: colors.$colorBorderPrimary;
+  color: colors.$colorTextPrimary;
+  min-width: 160px;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background-color .2s;
+}
+.button-primary:hover {
+  color: colors.$colorTextAccent;
+  border-color: colors.$colorBorderFocus;
+  background-color: colors.$colorBgButtonPrimaryFocus;
+}

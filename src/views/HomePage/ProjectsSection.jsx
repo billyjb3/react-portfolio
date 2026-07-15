@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Heading, ContentContainer } from '../../components';
 
-const ProjectsSection = () => {
+const ProjectsSection = (props) => {
+  const { registerScrollable } = props;
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (sectionRef.current) registerScrollable(sectionRef);
+  }, [sectionRef.current]);
+
   return (
-    <div className="content-container margin-auto-lr pad-4-t">
-      <Heading level={2} className="pad-1-b margin-3-b border-b border-fade-r">
+    <div
+      ref={sectionRef}
+      className="sectionContainer content-container margin-auto-lr pad-4-tb"
+      data-scroller-label="Projects"
+    >
+      <Heading level={2} className="pad-1-b pad-4-t margin-3-b border-b-1 border-fade-r">
         Projects
       </Heading>
       <ContentContainer className="margin-3-t pad-3 border-radius-lg">
