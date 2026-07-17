@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, createContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopNav from './TopNav';
 import SideNav from './SideNav';
 import HeroSection from './HeroSection';
@@ -11,41 +11,63 @@ import { navConfig } from './navConfig';
 import { useSectionScroller } from '../../hooks';
 import './styles.scss';
 
+const sideNavWidth = 120;
+const contentWidth = 1240;
 const HomePage = () => {
-  const [navPosition, setNavPosition] = useState('right');
-  const [scrollerWidth, setScrollerWidth] = useState(0);
+  // TODO: add dock state to cookies so it stays where the use put it whenever they come back
+  const [navPosition, setNavPosition] = useState('right'); // right top left
+  const [showDockOptions, setShowDockOptions] = useState(true);
   const sectionScroller = useSectionScroller();
 
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width > contentWidth) {
+        if ((width - contentWidth) / 2 < sideNavWidth) setShowDockOptions(false);
+        else setShowDockOptions(true);
+      } else setShowDockOptions(false);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const sideNaveIsLeft = navPosition === 'left';
   return (
     <>
-      {navPosition === 'top' ? (
+      {navPosition === 'top' || !showDockOptions ? (
         <TopNav
           navConfig={navConfig}
           sectionScroller={sectionScroller}
           setNavPosition={setNavPosition}
+          showDockOptions={showDockOptions}
         />
       ) : (
         <SideNav
           navConfig={navConfig}
           sectionScroller={sectionScroller}
-          isLeft={navPosition === 'left'}
+          isLeft={sideNaveIsLeft}
           setNavPosition={setNavPosition}
+          width={sideNavWidth}
         />
       )}
       <WingsPageDivider isBottom={true} />
       <HeroSection
-        scrollerWidth={scrollerWidth}
         sectionScroller={sectionScroller}
       />
       <WingsPageDivider />
       <AboutSection
-        scrollerWidth={scrollerWidth}
         sectionScroller={sectionScroller}
       />
       <WingsPageDivider isBottom={true} />
-      <ProjectsSection sectionScroller={sectionScroller} />
+      <ProjectsSection
+        sectionScroller={sectionScroller}
+      />
       <WingsPageDivider />
-      <ContactSection sectionScroller={sectionScroller} />
+      <ContactSection
+        sectionScroller={sectionScroller}
+      />
     </>
   );
 };

@@ -22,7 +22,9 @@ import {
 import { heroId } from './navConfig';
 
 const HeroSection = (props) => {
-  const { sectionScroller: { registerRef } } = props;
+  const {
+    sectionScroller: { registerRef },
+  } = props;
   const sectionRef = useRef(null);
 
   useEffect(() => {
