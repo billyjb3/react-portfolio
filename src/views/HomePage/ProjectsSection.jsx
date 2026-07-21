@@ -15,7 +15,7 @@ const ProjectsSection = (props) => {
       ref={sectionRef}
       className="sectionContainer content-container margin-auto-lr pad-4-tb"
     >
-      <Heading level={2} className="pad-1-b pad-4-t margin-3-b border-b-1 border-fade-r">
+      <Heading level={2} className="pad-1-b pad-4-t margin-3-b border-b-1 border-fade-r margin-3-lr">
         Projects
       </Heading>
       <ContentContainer className="margin-3-t pad-3 border-radius-lg">

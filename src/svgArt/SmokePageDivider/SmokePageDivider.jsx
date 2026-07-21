@@ -26,7 +26,7 @@ const SmokePageDivider = (props) => {
       viewBox="0 0 1000 100"
       style={{
         width: '100%',
-        height: '200px',
+        maxHeight: '200px',
         display: 'block',
         ...(isBottom ? { transform: 'scaleY(-1)' } : {}),
       }}

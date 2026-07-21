@@ -18,7 +18,7 @@ const ContactSection = (props) => {
   }, [sectionRef.current]);
 
   return (
-    <ContentContainer className="sectionContainer pad-4-tb">
+    <ContentContainer className="sectionContainer pad-4-tb pad-3-lr">
       <div
         ref={sectionRef}
         className="content-container margin-auto-lr pad-4-tb"
@@ -44,7 +44,7 @@ const ContactSection = (props) => {
               Fill out the form below, or email me directly and I'll get back to you as soon as I can.
             </div>
             <Form className="row">
-              <div className="col-8-md-up">
+              <div className="col-8-lg">
                 {messageFormConfig.map((config) => (
                   <FormIntegratedLabelTextInput {...config} />
                 ))}
@@ -66,21 +66,21 @@ const ContactSection = (props) => {
             </Heading>
             <div className="pad-3-tb">
               <a href="mailto:billyjbrewer3@gmail.com" className="flex flex-align-center">
-                <IconGmail />
+                <IconGmail className="flex-shrink-none" />
                 <span className="pad-3-l">billyjbrewer3@gmail.com</span>
               </a>
             </div>
 
             <div className="pad-3-b">
               <a href="https://www.linkedin.com/in/billyjbrewer3" className="flex flex-align-center">
-                <IconLinkedin />
+                <IconLinkedin className="flex-shrink-none" />
                 <span className="pad-3-l">https://www.linkedin.com/in/billyjbrewer3</span>
               </a>
             </div>
 
             <div className="pad-3-b">
               <a href="https://github.com/billyjb3" className="flex flex-align-center">
-                <IconGithub />
+                <IconGithub className="flex-shrink-none" />
                 <span className="pad-3-l">https://github.com/billyjb3</span>
               </a>
             </div>

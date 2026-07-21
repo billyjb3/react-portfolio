@@ -1,12 +1,13 @@
 import React from 'react';
 
-const IconGraphql = () => {
+const IconGraphql = (props) => {
+  const { size = '48px' } = props;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 100 100"
-      style={{ width: '48px' }}
+      style={{ width: size }}
     >
       <path
         fill="#e535ab"

@@ -1,12 +1,13 @@
 import React from 'react';
 
-const IconHtml = () => {
+const IconHtml = (props) => {
+  const { size = '48px' } = props;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 100 100"
-      style={{ width: '48px' }}
+      style={{ width: size }}
     >
       <path fill="#e44d26" d="M14.021 90.034 6 0h88.187l-8.022 89.985L50.02 100"/>
       <path fill="#f16529" d="M50.093 92.344V7.39h36.048l-6.88 76.811"/>

@@ -1,12 +1,18 @@
 import React from 'react';
 
-const IconGithub = () => {
+const IconGithub = (props) => {
+  const {
+    size = '36px',
+    ...rest
+  } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 100 100"
-      style={{ width: '36px' }}
+      style={{ width: size }}
+      {...rest}
     >
       <g fill="#fff" clipPath="url(#a)">
         <path

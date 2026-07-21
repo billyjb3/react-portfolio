@@ -1,4 +1,5 @@
 @use '../globalStyles/colors' as colors;
+@use '@billyjb3/global-styles' as globals;
 
 .glassBackground {
   background: rgba(colors.$colorBgPrimary, .3);
@@ -16,6 +17,11 @@
 .techCard {
   width: 180px;
   flex-shrink: 0;
+}
+@media (max-width: globals.$sm-down) {
+  .techCard {
+    width: 100px;
+  }
 }
 
 .buttonPrimary {

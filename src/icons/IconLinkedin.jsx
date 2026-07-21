@@ -1,15 +1,21 @@
 import React from 'react'
 
-const IconLinkedin = () => {
+const IconLinkedin = (props) => {
+  const {
+    size = '36px',
+    ...rest
+  } = props;
+
   return (
     <svg
       viewBox="0 0 256.00 256.00"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-      preserveAspectRatio="xMidYMid"
+      // preserveAspectRatio="xMidYMid"
       fill="#000000"
-      style={{ width: '36px' }}
+      style={{ width: size }}
+      {...rest}
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0" transform="translate(0,0), scale(1)">
         <rect x="0" y="0" width="256.00" height="256.00" rx="25.6" fill="#ffffff" strokeWidth="0"/>

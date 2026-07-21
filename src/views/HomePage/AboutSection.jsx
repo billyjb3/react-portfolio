@@ -28,7 +28,7 @@ const AboutSection = (props) => {
   }, [sectionRef.current]);
 
   return (
-    <ContentContainer className="sectionContainer pad-4-tb">
+    <ContentContainer className="sectionContainer pad-4-tb pad-3-lr">
       <div
         ref={sectionRef}
         className="content-container margin-auto-lr pad-4-tb"
@@ -60,13 +60,14 @@ const AboutSection = (props) => {
             >
               education
             </Heading>
-            <div className="text-align-center display-inline-block pad-3">
+            <div className="text-align-center display-inline-block pad-2 margin-3-r margin-2-tb border-2 border-radius-md color-border-primary color-bg-surface">
               <IconGSU />
               <div className="italic">Georgia Southern University</div>
               <div>BS in Computer Science</div>
               <div>2018</div>
             </div>
-            <div className="text-align-center display-inline-block pad-3">
+            <div className="text-align-center display-inline-block pad-2 margin-2-tb border-2 border-radius-md color-border-primary color-bg-surface">
+              <IconGSU />
               <div className="italic">Georgia Southern University</div>
               <div>BS in Physics</div>
               <div>2018</div>
@@ -104,7 +105,7 @@ const AboutSection = (props) => {
           <div className="col-6-md-up pad-1-l-md-up">
             <Heading
               level={3}
-              className="body font-weight-6 condensed uppercase color-text-accent text-align-center"
+              className="body font-weight-6 condensed uppercase color-text-accent text-align-center pad-3-t-sm-down"
             >
               Technologies
             </Heading>

@@ -15,11 +15,11 @@ const RootContainer = () => {
   return (
     <div
       id="appContainer"
-      className="height-page color-text-primary flex flex-column color-bg-primary body"
+      className="height-page color-text-primary color-bg-primary body"
     >
       <Router indexRedirect="home">
         <BackgroundArt />
-        <div className="flex-grow top-z" id="displaySection">
+        <div className="position-relative flex-grow top-z" id="displaySection">
           <PageRoute path="/home" Component={HomePage} />
           <PageRoute path="/contact" Component={ContactPage} />
           <PageRoute path="/projects" Component={ProjectsPage} />

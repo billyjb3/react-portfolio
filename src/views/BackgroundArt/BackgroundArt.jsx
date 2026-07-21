@@ -237,7 +237,7 @@ const BackgroundArt = () => {
 
   const { w, h } = containerSize;
   return (
-    <div ref={containerRef} className="position-fixed-t color-bg-primary backgroundContainer">
+    <div ref={containerRef} className="position-fixed-t color-bg-primary backgroundContainer bottom-z">
       <canvas
         ref={canvasRef}
         className=""
