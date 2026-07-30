@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-import RootContainer from './views/RootContainer';
+import RootContainer from './features/RootContainer';
 import reportWebVitals from './reportWebVitals';
 import './globalStyles/index.scss';
 import '@billyjb3/global-styles';

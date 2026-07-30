@@ -25,7 +25,7 @@ const ContactSection = (props) => {
       >
         <Heading
           level={2}
-          className="pad-1-b margin-3-b border-b-1 border-fade-r"
+          className="pad-1-b margin-3-b border-b-1 border-fade-r uppercase"
         >
           Contact
         </Heading>
@@ -72,14 +72,22 @@ const ContactSection = (props) => {
             </div>
 
             <div className="pad-3-b">
-              <a href="https://www.linkedin.com/in/billyjbrewer3" className="flex flex-align-center">
+              <a
+                href="https://www.linkedin.com/in/billyjbrewer3"
+                className="flex flex-align-center"
+                target="_blank"
+              >
                 <IconLinkedin className="flex-shrink-none" />
                 <span className="pad-3-l">https://www.linkedin.com/in/billyjbrewer3</span>
               </a>
             </div>
 
             <div className="pad-3-b">
-              <a href="https://github.com/billyjb3" className="flex flex-align-center">
+              <a
+                href="https://github.com/billyjb3"
+                className="flex flex-align-center"
+                target="_blank"
+              >
                 <IconGithub className="flex-shrink-none" />
                 <span className="pad-3-l">https://github.com/billyjb3</span>
               </a>

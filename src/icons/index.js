@@ -18,6 +18,7 @@ import IconGSU from './IconGSU';
 import IconDockRight from './IconDockRight';
 import IconDockLeft from './IconDockLeft';
 import IconDockTop from './IconDockTop';
+import IconGear from './IconGear';
 
 export {
   IconJavascript,
@@ -40,4 +41,5 @@ export {
   IconDockRight,
   IconDockLeft,
   IconDockTop,
+  IconGear,
 };

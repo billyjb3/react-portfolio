@@ -11,7 +11,7 @@ const GlassContainer = (props) => {
   return (
     <div className={`position-relative glassContainer ${className}`}>
       <div className={`glassBackground position-absolute-tl width-full height-full border-radius-lg box-shadow-card ${backdropClass}`} />
-      <div className={`top-z position-relative ${childClass}`}>
+      <div className={`z-top position-relative ${childClass}`}>
         {children}
       </div>
     </div>

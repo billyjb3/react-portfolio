@@ -35,7 +35,7 @@ const AboutSection = (props) => {
       >
         <Heading
           level={2}
-          className="pad-1-b margin-3-b border-b-1 border-fade-r"
+          className="uppercase pad-1-b margin-3-b border-b-1 border-fade-r"
         >
           About
         </Heading>

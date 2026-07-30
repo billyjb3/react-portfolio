@@ -8,9 +8,9 @@ const ContentContainer = (props) => {
   } = props;
 
   return (
-    <div className={`position-relative bottom-z ${className}`}>
+    <div className={`position-relative ${className}`}>
       <div className="position-absolute-tl width-full height-full contentContainerBg" />
-      <div className={`top-z position-relative ${contentClassName}`}>
+      <div className={`z-top position-relative ${contentClassName}`}>
         {children}
       </div>
     </div>

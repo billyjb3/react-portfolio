@@ -1,10 +1,11 @@
 import { requiredCheck } from '@billyjb3/global-react';
-
-const container = 'pad-3-b';
-const input = 'border-1 border-radius-md color-text-primary barlow body-small body-bold condensed';
-const label = 'body-small color-text-accent';
-const activeLabel = 'color-bg-primary sub-text color-text-accent';
-const error = 'color-bg-primary color-text-error sub-text';
+import {
+  container,
+  input,
+  label,
+  activeLabel,
+  error,
+} from './formComponentStyles';
 
 export const messageFormConfig = [
   {

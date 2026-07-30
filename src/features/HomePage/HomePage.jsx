@@ -1,25 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import BackgroundArt from '../BackgroundArt/BackgroundArt';
+import Footer from '../Footer/Footer';
 import TopNav from './TopNav';
 import SideNav from './SideNav';
+import SettingsMenu from './SettingsMenu';
 import HeroSection from './HeroSection';
 import AboutSection from './AboutSection';
 import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
-import WingsPageDivider from '../../svgArt/SmokePageDivider/SmokePageDivider';
+import SmokePageDivider from '../../svgArt/SmokePageDivider/SmokePageDivider';
 import PuddlePageDivider from '../../svgArt/PuddlePageDivider/PuddlePageDivider';
 import { navConfig } from './navConfig';
 import { useSectionScroller } from '../../hooks';
+import { HomeContext, useHomeContextState } from './homeContext';
 import './styles.scss';
 
 const sideNavWidth = 120;
 const contentWidth = 1240;
 const HomePage = () => {
-  // TODO: add dock state to cookies so it stays where the use put it whenever they come back
   const [navPosition, setNavPosition] = useState('right'); // right top left
   const [showDockOptions, setShowDockOptions] = useState(true);
   const sectionScroller = useSectionScroller();
+  const homeContextState = useHomeContextState();
 
   useEffect(() => {
+    const storedDock = localStorage.getItem('homeDock');
+    if (storedDock) setNavPosition(storedDock);
+
     const handleResize = () => {
       const width = window.innerWidth;
       if (width > contentWidth) {
@@ -33,14 +40,20 @@ const HomePage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const setDock = (position) => {
+    localStorage.setItem('homeDock', position);
+    setNavPosition(position);
+  };
+
   const sideNaveIsLeft = navPosition === 'left';
   return (
-    <>
+    <HomeContext.Provider value={homeContextState}>
+      <BackgroundArt />
       {navPosition === 'top' || !showDockOptions ? (
         <TopNav
           navConfig={navConfig}
           sectionScroller={sectionScroller}
-          setNavPosition={setNavPosition}
+          setNavPosition={setDock}
           showDockOptions={showDockOptions}
         />
       ) : (
@@ -48,27 +61,31 @@ const HomePage = () => {
           navConfig={navConfig}
           sectionScroller={sectionScroller}
           isLeft={sideNaveIsLeft}
-          setNavPosition={setNavPosition}
+          setNavPosition={setDock}
           width={sideNavWidth}
         />
       )}
-      <WingsPageDivider isBottom={true} />
-      <HeroSection
-        sectionScroller={sectionScroller}
-      />
-      <WingsPageDivider />
-      <AboutSection
-        sectionScroller={sectionScroller}
-      />
-      <WingsPageDivider isBottom={true} />
-      <ProjectsSection
-        sectionScroller={sectionScroller}
-      />
-      <WingsPageDivider />
-      <ContactSection
-        sectionScroller={sectionScroller}
-      />
-    </>
+      <SettingsMenu isRight={sideNaveIsLeft && showDockOptions} />
+      <div className="position-relative z-1">
+        <SmokePageDivider isBottom={true} />
+        <HeroSection
+          sectionScroller={sectionScroller}
+        />
+        <SmokePageDivider />
+        <AboutSection
+          sectionScroller={sectionScroller}
+        />
+        <SmokePageDivider isBottom={true} />
+        <ProjectsSection
+          sectionScroller={sectionScroller}
+        />
+        <SmokePageDivider />
+        <ContactSection
+          sectionScroller={sectionScroller}
+        />
+      </div>
+      <Footer className="z-2"/>
+    </HomeContext.Provider>
   );
 };
 

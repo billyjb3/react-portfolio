@@ -6,13 +6,11 @@
   line-height: unquote("clamp(2.6rem, 7vw, 5rem)");
   font-weight: 800;
   letter-spacing: .03rem;
-  text-transform: uppercase;
 }
 .heading-2 {
   font-family: 'barlow condensed', sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: .03rem;
 }
 .heading-3 {
@@ -45,5 +43,8 @@
 }
 .sub-text {
   font-size: .8rem;
+}
+.body-spaced {
+  letter-spacing: .03rem;
 }
 

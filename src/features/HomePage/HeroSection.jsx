@@ -37,18 +37,18 @@ const HeroSection = (props) => {
         ref={sectionRef}
         className="content-container margin-auto-lr pad-4-tb heroContainer text-align-center"
       >
-        <Heading level={1}>
+        <Heading level={1} className="uppercase">
           Hello, I'm <span className="color-text-accent">Billy</span>
         </Heading>
-        <Heading level={2} className="pad-3-t">
-          I'm a creative and innovative Front-End Web Developer.
+        <Heading level={2} className="pad-3-t pad-4-b font-weight-6">
+          I'm a creative and innovative Front-End Software Engineer.
         </Heading>
         <div className="pad-4-t">
           <ButtonPrimary className="margin-1">Resume</ButtonPrimary>
           <ButtonPrimary className="margin-1">Projects</ButtonPrimary>
           <ButtonPrimary className="margin-1">Contact</ButtonPrimary>
         </div>
-        <div className="pad-3-t flex flex-justify-center">
+        <div className="pad-3-t pad-4-b flex flex-justify-center">
           <ButtonIcon><IconLinkedin /></ButtonIcon>
           <ButtonIcon><IconGithub /></ButtonIcon>
           <ButtonIcon><IconGmail /></ButtonIcon>

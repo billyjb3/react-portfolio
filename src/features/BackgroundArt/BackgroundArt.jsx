@@ -1,0 +1,288 @@
+import React, { useState, useEffect, useRef } from 'react';
+import {MovingParticles} from './MovingParticles';
+import { useHomeContext } from '../HomePage/homeContext';
+
+const BackgroundArt = () => {
+  const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+  const [containerSize, setContainerSize] = useState({
+    w: window.innerWidth,
+    h: window.innerHeight,
+  });
+  const { backgroundState } = useHomeContext();
+
+  // useEffect(() => {
+    // const canvas = canvasRef?.current;
+    // const context = canvas?.getContext('2d');
+    // if (context) {
+    //   let frame;
+
+      // const circles = [];
+      //
+      // const maxMoving = .01; // percent of particles.length
+      // const maxSpeed = 2;
+      // const minSpeed = .5;
+      // const circleChance = 50;
+      // const arcSpeed = .05;
+      // const spacing = 20;
+      // const waveSpeed = 1; // down y-axis
+      // const waveWidth = 240; // width relative to x-axis in pixels
+      // const waveInterval = 9000; // ms until a new wave is created;
+      // const waveSlope = -1;
+      // const waveHeight = spacing / 2;
+
+      // sizing values. change on window resize
+      // let particles = [];
+      // let movingParticles = [];
+      // let waves = [];
+      // let w = canvas.width;
+      // let h = canvas.height;
+      // let movingCount;
+
+      // const setSizing = () => {
+      //   w = canvas.width;
+      //   h = canvas.height;
+      //   createParticles();
+      // };
+
+      // 0: right, 1: up, 2: left, 3: down
+      // const getDir = () => {
+      //   return Math.floor(Math.random() * 4);
+      // };
+
+      // const getRandomPosition = () => {
+      //   const i = Math.floor(Math.random() * particles.length);
+      //   const { x, y } = particles[i];
+      //   return { x, y };
+      // }
+
+      // const getMovingParticle = () => {
+      //   const particle = getRandomPosition();
+      //   const dir = getDir();
+      //   const speed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
+      //   if (dir === 0) {
+      //     particle.dx = speed;
+      //     particle.dy = 0;
+      //   } else if (dir === 1) {
+      //     particle.dx = 0;
+      //     particle.dy = -speed;
+      //   } else if (dir === 2) {
+      //     particle.dx = -speed;
+      //     particle.dy = 0;
+      //   } else {
+      //     particle.dx = 0;
+      //     particle.dy = speed;
+      //   }
+      //   return particle;
+      // }
+
+      // const createParticles = () => {
+      //   particles = [];
+      //   movingParticles = [];
+      //   const i = Math.ceil(w / spacing);
+      //   const j = Math.ceil(h / spacing);
+      //   for (let x = 0; x < i; x++) {
+      //     for (let y = 0; y < j; y++) {
+      //       const xi = x * spacing;
+      //       const yi = y * spacing;
+      //       particles.push({
+      //         xi,
+      //         yi,
+      //         x: xi,
+      //         y: yi,
+      //       });
+      //     }
+      //   }
+      //   movingCount = Math.ceil(maxMoving * particles.length);
+      //   for (let n = 0; n < movingCount; n++) {
+      //     movingParticles.push(getMovingParticle());
+      //   }
+      // };
+
+      // const getCircle = () => {
+      //   const circle = getRandomPosition();
+      //   const arcStart = Math.random() * 2 * Math.PI;
+      //   circle.arcStart = arcStart;
+      //   circle.currentArc = 0;
+      //   circle.dir = Math.round(Math.random());
+      //   return circle;
+      // }
+
+      // const getWave = (delta) => {
+      //   // console.log('getWave delta:' + delta);
+      //   return {
+      //     b: 0,
+      //     delta,
+      //   };
+      // };
+
+      // const render = (delta) => {
+        // console.log(delta);
+        // if (!particles.length) createParticles();
+        // if (w !== canvas.width || h !== canvas.height) setSizing();
+        // if (!waves.length) waves.push(getWave(0));
+        // context.clearRect(0, 0, w, h);
+
+        // const circleDraw = Math.floor(Math.random() * 100) < circleChance;
+        // if (circleDraw) circles.push(getCircle());
+
+        // particles.forEach((particle) => {
+        //   const { x, y, yi } = particle;
+        //   context.beginPath();
+        //   context.arc(x, y, 1, 0, Math.PI * 2);
+        //   context.fillStyle = '#303030';
+        //   context.fill();
+
+          // waves.forEach((wave, i) => {
+          //   const xfront = (yi - wave.b) / waveSlope;
+          //   const xback = xfront - waveWidth;
+            // const yfront = waveSlope * x + wave.b;
+            // const yback = yfront + waveSlope * waveWidth;
+            // const isInWave = x >= xback && x <= xfront;
+
+            // if (isInWave) {
+            //   const xw = xfront - x;
+            //   const xww = Math.abs(xw - (waveWidth / 2));
+            //   const m = waveHeight / (waveWidth / 2);
+            //   const dy = xww * -m + waveHeight;
+            //   // const xww = xw - (waveWidth / 2);
+            //   // const a = Math.pow(waveWidth / 2, 2);
+            //   // const b = Math.pow(xww, 2);
+            //   // const dy = Math.sqrt(a - b);
+            //   particle.y = yi - dy;
+            //
+            //   if (i === 0 && waves.length > 10) wave[delta] = true;
+            // }
+        //   });
+        // });
+
+        // TODO: could be cool to have them randomly disappear on some dot opposed to only disappearing on the edge
+        // movingParticles.forEach((particle, i) => {
+        //   const { x, y, dx, dy } = particle;
+        //   context.beginPath();
+        //   context.arc(x, y, 1, 0, Math.PI * 2);
+        //   context.fillStyle = '#606060';
+        //   context.fill();
+        //   particle.x += dx;
+        //   particle.y += dy;
+        //   if (particle.x > w || particle.x < 0 || particle.y > h | particle.y < 0) {
+        //     movingParticles[i] = getMovingParticle();
+        //   }
+        // });
+
+        // waves.forEach((wave) => {
+        //   wave.b += waveSpeed;
+        // });
+        //
+        // if (waves.length > 10) {
+        //   if (waves[0][delta]) delete waves[0][delta]
+        //   else waves.splice(0, 1);
+        // }
+
+        // const lastWaveDelta = waves[waves.length - 1].delta;
+        // if (delta - lastWaveDelta >= waveInterval) {
+        //   waves.push(getWave(delta));
+        // }
+
+        // circles.forEach((circle) => {
+        //   const {
+        //     x,
+        //     y,
+        //     arcStart,
+        //     currentArc,
+        //     dir,
+        //   } = circle;
+        //   let arcEnd = 0;
+        //   if (!!dir) { // counter clockwise
+        //     arcEnd = arcStart - currentArc;
+        //     if (arcEnd < 0) {
+        //       arcEnd = (Math.PI * 2) - (currentArc - (Math.PI * 2 - arcStart));
+        //     }
+        //   } else {
+        //     arcEnd = arcStart + currentArc
+        //     if (arcEnd > Math.PI * 2) {
+        //       arcEnd = currentArc - (Math.PI * 2 - arcStart);
+        //     }
+        //   }
+        //   context.beginPath();
+        //   context.arc(x, y, spacing, arcStart, arcEnd, !!dir);
+        //   context.strokeStyle = '#606060';
+        //   context.stroke();
+        //   circle.currentArc += arcSpeed;
+        // });
+        //
+        // for (let i = circles.length - 1; i >= 0; i--) {
+        //   const { currentArc } = circles[i];
+        //   if ( currentArc >= Math.PI * 2) circles.splice(i, 1);
+        // }
+
+        // frame = window.requestAnimationFrame(render);
+      // };
+
+  //     render();
+  //     return () => window.cancelAnimationFrame(frame);
+  //   }
+  // }, [canvasRef.current]);
+
+  // TODO: have a global settings option to change the background color of the canvas.
+  const backgroundClasses = useRef({});
+  useEffect(() => {
+    const canvas = canvasRef?.current;
+    const context = canvas?.getContext('2d');
+    if (!context) return;
+
+    let width = canvas.width;
+    let height = canvas.height;
+    Object.values(backgroundState).forEach((state) => backgroundClasses.current[state.id] = new state.renderClass(canvas));
+    let frame;
+
+    const render = () => {
+      if (width !== canvas.width || height !== canvas.height) {
+        width = canvas.width;
+        height = canvas.height;
+        Object.values(backgroundClasses.current).forEach((backgroundClass) => backgroundClass.init());
+      }
+      context.clearRect(0, 0, width, height);
+
+      Object.values(backgroundClasses.current).forEach((backgroundClass) => backgroundClass.render(context));
+
+      frame = window.requestAnimationFrame(render);
+    };
+
+    render();
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [canvasRef.current]);
+
+  useEffect(() => {
+    Object.values(backgroundState).forEach((state) => {
+      const { id, props } = state;
+      backgroundClasses.current[id].changeProps(props);
+    });
+  }, [backgroundState]);
+
+  const setSize = () => {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    setContainerSize({ w, h });
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', setSize);
+    return () => window.removeEventListener('resize', setSize);
+  }, []);
+
+  const { w, h } = containerSize;
+  return (
+    <div ref={containerRef} className="position-fixed-t color-bg-primary size-full">
+      <canvas
+        ref={canvasRef}
+        className=""
+        width={w}
+        height={h}
+      />
+    </div>
+  );
+};
+
+export default BackgroundArt;

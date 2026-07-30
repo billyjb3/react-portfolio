@@ -1,0 +1,61 @@
+@use '../../globalStyles/colors' as colors;
+
+.heroContainer {
+  min-height: 80vh;
+}
+
+.sectionContainer {
+  min-height: 90vh;
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+}
+
+.sideNavContainer {
+  height: 100vh;
+  position: fixed;
+}
+
+.sideNavBackground {
+  background: rgba(colors.$colorBgPrimary, .8);
+}
+
+.settingsTab {
+  position: fixed;
+  bottom: 20px;
+  height: 60px;
+  width: 34px;
+}
+.settingsTab.left {
+  left: 0;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.settingsTab.right {
+  right: 0;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+$settingsMenuWidth: 300px;
+.settingsMenu {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: $settingsMenuWidth;
+  transition: left .2s ease-in, right .2s ease-in;
+}
+.settingsMenu.right {
+  right: -$settingsMenuWidth;
+}
+.settingsMenu.right.open {
+  right: 0;
+}
+.settingsMenu.left {
+  left: -$settingsMenuWidth;
+}
+.settingsMenu.left.open {
+  left: 0;
+}
