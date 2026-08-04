@@ -65,7 +65,7 @@ const HomePage = () => {
           width={sideNavWidth}
         />
       )}
-      <SettingsMenu isRight={sideNaveIsLeft && showDockOptions} />
+      {/*<SettingsMenu isRight={sideNaveIsLeft && showDockOptions} />*/}
       <div className="position-relative z-1">
         <SmokePageDivider isBottom={true} />
         <HeroSection

@@ -1,8 +1,10 @@
 
-$colorBgPrimary: #101215;
-//$colorBgPrimary: white;
+//$colorBgPrimary: #121418;
+$colorBgPrimary: #131520;
+$colorBgSection: #161923;
 $colorBgSurface: #202530;
-$colorBgSurfaceSecondary: #151515;
+$colorBgSurfaceSecondary: #303745;
+
 $colorBgButtonPrimary: #202530;
 $colorBgButtonPrimaryFocus: #222835;
 $colorBgSuccess: #a0f0a0;
@@ -72,6 +74,9 @@ $colorShadowPrimary: #c0c0c0;
 .color-bg-surface {
   background-color: $colorBgSurface;
 }
+.color-bg-section {
+  background-color: $colorBgSection;
+}
 .color-bg-surface-secondary {
   background-color: $colorBgSurfaceSecondary;
 }
@@ -91,6 +96,9 @@ $colorShadowPrimary: #c0c0c0;
   background-color: white;
 }
 
+.color-bg-text {
+  background-color: $colorTextPrimary;
+}
 .color-text-primary {
   @include colorTextPrimary;
 }

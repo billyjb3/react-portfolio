@@ -1,5 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { useOnClickout, IconClose, ButtonIcon } from '@billyjb3/global-react';
+import {
+  useOnClickout,
+  IconClose,
+  ButtonIcon,
+  SimpleToggleSwitch,
+} from '@billyjb3/global-react';
 import { IconGear } from '../../icons';
 import { useHomeContext } from './homeContext';
 
@@ -12,12 +17,16 @@ const SettingsMenu = (props) => {
   const menuRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   useOnClickout(menuRef, () => setIsOpen(false));
-  const { backgroundState, updateBackgroundState } = useHomeContext();
+  const {
+    pageSettings,
+    updatePageSetting,
+    backgroundState,
+    updateBackgroundState,
+  } = useHomeContext();
 
   const lrStyle = isRight ? 'right' : 'left';
   const border = isRight ? 'border-l-1' : 'border-r-1';
-  console.log('backgroundState in SettingsMenu:');
-  console.log(backgroundState);
+
   return (
     <>
       <div
@@ -40,6 +49,30 @@ const SettingsMenu = (props) => {
             Settings
           </h1>
         </div>
+
+        <div className="pad-3-b">
+          {Object.entries(pageSettings).map(([key, state]) => {
+            const { value, input, label } = state;
+
+            if (input === 'switch') {
+              return (
+                <div className="pad-2-tb flex flex-align-center flex-justify-between">
+                  {label}
+                  <SimpleToggleSwitch
+                    isOn={value}
+                    onClick={() => updatePageSetting(key, !value)}
+                    className={`${value ? 'color-bg-surface-secondary' : 'color-bg-surface'} border-1 color-border-primary`}
+                    sliderClass="color-bg-text"
+                    width={54}
+                    height={24}
+                    padding={2}
+                  />
+                </div>
+              );
+            }
+          })}
+        </div>
+
         {Object.values(backgroundState).map((state) => {
           const {
             label,
@@ -92,12 +125,16 @@ const SettingsMenu = (props) => {
                           updateBackgroundState(backgroundArtId, stateKey, updated);
                         }
                         return (
-                          <div>
+                          <div className="pad-1-tb flex flex-align-center flex-justify-between">
                             {checkboxLabel}
-                            <input
-                              type="checkbox"
-                              checked={checked}
-                              onChange={handleChange}
+                            <SimpleToggleSwitch
+                              isOn={checked}
+                              onClick={handleChange}
+                              className={`${checked ? 'color-bg-surface-secondary' : 'color-bg-surface'} border-1 color-border-primary`}
+                              sliderClass="color-bg-text"
+                              width={54}
+                              height={24}
+                              padding={2}
                             />
                           </div>
                         );
@@ -108,12 +145,16 @@ const SettingsMenu = (props) => {
 
                 if (input === 'switch') {
                   return (
-                    <div className="pad-2-tb">
+                    <div className="pad-2-tb flex flex-align-center flex-justify-between">
                       {propLabel}
-                      <input
-                        type="checkbox"
-                        checked={value}
-                        onChange={() => updateBackgroundState(backgroundArtId, stateKey, !value)}
+                      <SimpleToggleSwitch
+                        isOn={value}
+                        onClick={() => updateBackgroundState(backgroundArtId, stateKey, !value)}
+                        className={`${value ? 'color-bg-surface-secondary' : 'color-bg-surface'} border-1 color-border-primary`}
+                        sliderClass="color-bg-text"
+                        width={54}
+                        height={24}
+                        padding={2}
                       />
                     </div>
                   );

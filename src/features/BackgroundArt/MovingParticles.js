@@ -1,17 +1,10 @@
 import Grid from './Grid';
-import getPropValues from './getPropValues';
+import { getBoundedValue } from './utils';
 
 // TODO: add diagonal moves..
 // TODO: implement a 4-8 way arrow Icon box for direction choices.
 export const getProps = () => ({
-  spacing: {
-    value: 20,
-    default: 20,
-    min: 10,
-    max: 100,
-    input: 'incrementNumber',
-    label: 'Grid Spacing',
-  },
+
   directions: {
     value: [3],
     default: [3],
@@ -24,12 +17,6 @@ export const getProps = () => ({
     },
     label: 'Particle Directions',
   }, // all, left, right, up, down
-  drawGridDots: {
-    value: false,
-    default: false,
-    input: 'switch',
-    label: 'Draw Grid Dots',
-  },
   minSpeed: {
     value: .5,
     default: .5,
@@ -55,14 +42,28 @@ export const getProps = () => ({
     label: 'Max Particles (% of grid points)',
   }, // % of grid.coords.length
   particleColor: {
-    value: '#606060',
-    default: '#606060',
+    value: '#606080',
+    default: '#606080',
     input: 'colorPicker',
     label: 'Particle Color',
   },
+  drawGridDots: {
+    value: true,
+    default: true,
+    input: 'switch',
+    label: 'Draw Grid Dots',
+  },
+  spacing: {
+    value: 25,
+    default: 25,
+    min: 10,
+    max: 100,
+    input: 'incrementNumber',
+    label: 'Grid Spacing',
+  },
   gridDotColor: {
-    value: '#303030',
-    default: '#303030',
+    value: '#202030',
+    default: '#202030',
     input: 'colorPicker',
     label: 'Grid Dot Color',
   },
@@ -81,12 +82,8 @@ export class MovingParticles {
   constructor(canvas) {
     this.props = getProps();
     this.canvas = canvas;
+    this.showAnimations = true;
     this.init();
-  }
-
-  getBoundedValue(prop) {
-    const { value, min, max } = prop;
-    return value > max ? max : value < min ? min : value;
   }
 
   getParticle(onEdge = false) {
@@ -97,8 +94,8 @@ export class MovingParticles {
     } = this.props;
     const { x, y } = this.grid.getRandom();
 
-    const boundedMin = this.getBoundedValue(minSpeed);
-    const boundedMax = this.getBoundedValue(maxSpeed);
+    const boundedMin = getBoundedValue(minSpeed);
+    const boundedMax = getBoundedValue(maxSpeed);
     const speed = Math.random() * (boundedMax - boundedMin) + boundedMin;
     const particle = { x, y };
 
@@ -139,14 +136,14 @@ export class MovingParticles {
     } = this.props;
     this.particles = [];
 
-    const boundedSpacing = this.getBoundedValue(spacing);
+    const boundedSpacing = getBoundedValue(spacing);
     const cw = this.canvas.width;
     const ch = this.canvas.height;
     const width = Math.floor(cw / boundedSpacing);
     const height = Math.floor(ch / boundedSpacing);
     this.grid = new Grid({ width, height, spacing: boundedSpacing });
 
-    const boundedMax = this.getBoundedValue(maxParticles);
+    const boundedMax = getBoundedValue(maxParticles);
     this.particleCap = Math.floor(this.grid.coords.length *  boundedMax);
 
     if (directions.value.length) {
@@ -181,8 +178,10 @@ export class MovingParticles {
       context.arc(x, y, 1, 0, Math.PI * 2);
       context.fillStyle = particleColor.value;
       context.fill();
-      particle.x += dx;
-      particle.y += dy;
+      if (this.showAnimations) {
+        particle.x += dx;
+        particle.y += dy;
+      }
       if (particle.x > w || particle.x < 0 || particle.y > h | particle.y < 0) {
         this.particles[i] = this.getParticle(true);
       }
@@ -192,5 +191,9 @@ export class MovingParticles {
   changeProps(props) {
     this.props = props;
     this.init();
+  }
+
+  toggleAnimations(showAnimations) {
+    this.showAnimations = showAnimations;
   }
 }

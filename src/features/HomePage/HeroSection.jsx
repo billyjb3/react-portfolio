@@ -20,12 +20,14 @@ import {
   IconGmail,
 } from '../../icons';
 import { heroId } from './navConfig';
+import { useHomeContext } from './homeContext';
 
 const HeroSection = (props) => {
   const {
     sectionScroller: { registerRef },
   } = props;
   const sectionRef = useRef(null);
+  const { pageSettings: { showAnimations } } = useHomeContext();
 
   useEffect(() => {
     if (sectionRef.current) registerRef(sectionRef, heroId);
@@ -53,21 +55,23 @@ const HeroSection = (props) => {
           <ButtonIcon><IconGithub /></ButtonIcon>
           <ButtonIcon><IconGmail /></ButtonIcon>
         </div>
-        <Marquee duration={50E3} className="margin-4-t">
-          <TechCard Icon={IconJavascript} label="javascript" />
-          <TechCard Icon={IconReact} label="react" />
-          <TechCard Icon={IconHtml} label="html" />
-          <TechCard Icon={IconCss} label="css" />
-          <TechCard Icon={IconSass} label="sass" />
-          <TechCard Icon={IconVite} label="vite" />
-          <TechCard Icon={IconAws} label="aws" />
-          <TechCard Icon={IconGit} label="git" />
-          <TechCard Icon={IconGraphql} label="graphql" />
-          <TechCard Icon={IconNodejs} label="nodejs" />
-          <TechCard Icon={IconJest} label="jest" />
-          <TechCard Icon={IconSelenium} label="selenium" />
-          <TechCard Icon={IconPixi} label="pixijs" />
-        </Marquee>
+        {showAnimations.value && (
+          <Marquee duration={50E3} className="margin-4-t">
+            <TechCard Icon={IconJavascript} label="javascript" />
+            <TechCard Icon={IconReact} label="react" />
+            <TechCard Icon={IconHtml} label="html" />
+            <TechCard Icon={IconCss} label="css" />
+            <TechCard Icon={IconSass} label="sass" />
+            <TechCard Icon={IconVite} label="vite" />
+            <TechCard Icon={IconAws} label="aws" />
+            <TechCard Icon={IconGit} label="git" />
+            <TechCard Icon={IconGraphql} label="graphql" />
+            <TechCard Icon={IconNodejs} label="nodejs" />
+            <TechCard Icon={IconJest} label="jest" />
+            <TechCard Icon={IconSelenium} label="selenium" />
+            <TechCard Icon={IconPixi} label="pixijs" />
+          </Marquee>
+        )}
       </div>
     </div>
   );
