@@ -25,11 +25,13 @@
 }
 
 .buttonPrimary {
+  display: inline-block;
   background-color: colors.$colorBgButtonPrimary;
   border-color: colors.$colorBorderPrimary;
   color: colors.$colorTextPrimary;
   min-width: 160px;
   cursor: pointer;
+  text-decoration: none;
   transition: color .2s, border-color .2s, background-color .2s;
 }
 .buttonPrimary:hover {

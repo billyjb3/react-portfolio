@@ -19,12 +19,15 @@ import {
   IconGithub,
   IconGmail,
 } from '../../icons';
-import { heroId } from './navConfig';
+import { heroId, projectsId, contactId } from './navConfig';
 import { useHomeContext } from './homeContext';
 
 const HeroSection = (props) => {
   const {
-    sectionScroller: { registerRef },
+    sectionScroller: {
+      registerRef,
+      handleClick: scrollerClick,
+    },
   } = props;
   const sectionRef = useRef(null);
   const { pageSettings: { showAnimations } } = useHomeContext();
@@ -46,14 +49,45 @@ const HeroSection = (props) => {
           I'm a creative and innovative Front-End Software Engineer.
         </Heading>
         <div className="pad-4-t">
-          <ButtonPrimary className="margin-1">Resume</ButtonPrimary>
-          <ButtonPrimary className="margin-1">Projects</ButtonPrimary>
-          <ButtonPrimary className="margin-1">Contact</ButtonPrimary>
+          <ButtonPrimary
+            isLink={true}
+            href="./Billy Brewer Resume - public.pdf"
+            className="margin-1"
+          >
+            Resume
+          </ButtonPrimary>
+          <ButtonPrimary
+            className="margin-1"
+            onClick={() => scrollerClick(projectsId)}
+          >
+            Projects
+          </ButtonPrimary>
+          <ButtonPrimary
+            className="margin-1"
+            onClick={() => scrollerClick(contactId)}
+          >
+            Contact
+          </ButtonPrimary>
         </div>
         <div className="pad-3-t pad-4-b flex flex-justify-center">
-          <ButtonIcon><IconLinkedin /></ButtonIcon>
-          <ButtonIcon><IconGithub /></ButtonIcon>
-          <ButtonIcon><IconGmail /></ButtonIcon>
+          <ButtonIcon
+            isLink={true}
+            href="https://www.linkedin.com/in/billyjbrewer3"
+          >
+            <IconLinkedin />
+          </ButtonIcon>
+          <ButtonIcon
+            isLink={true}
+            href="https://github.com/billyjb3"
+          >
+            <IconGithub />
+          </ButtonIcon>
+          <ButtonIcon
+            isLink={true}
+            href="mailto:billyjbrewer3@gmail.com"
+          >
+            <IconGmail />
+          </ButtonIcon>
         </div>
         {showAnimations.value && (
           <Marquee duration={50E3} className="margin-4-t">

@@ -8,14 +8,25 @@ import { Heading, ContentContainer } from '../../components';
 import { IconGmail, IconLinkedin, IconGithub } from '../../icons';
 import { messageFormConfig } from '../../utils';
 import { contactId } from './navConfig';
+import useMailer from '../../services/useMailer';
 
 const ContactSection = (props) => {
   const { sectionScroller: { registerRef } } = props;
   const sectionRef = useRef(null);
+  const {
+    isLoading,
+    error,
+    isDone,
+    sendMessage,
+  } = useMailer();
 
   useEffect(() => {
     if (sectionRef.current) registerRef(sectionRef, contactId);
   }, [sectionRef.current]);
+
+  const handleSubmit = (formData) => {
+    sendMessage(formData);
+  };
 
   return (
     <ContentContainer className="sectionContainer pad-4-tb pad-3-lr">
@@ -43,7 +54,10 @@ const ContactSection = (props) => {
             <div className="pad-3-b">
               Fill out the form below, or email me directly and I'll get back to you as soon as I can.
             </div>
-            <Form className="row">
+            <Form
+              onSubmit={handleSubmit}
+              className="row"
+            >
               <div className="col-8-lg">
                 {messageFormConfig.map((config) => (
                   <FormIntegratedLabelTextInput {...config} />

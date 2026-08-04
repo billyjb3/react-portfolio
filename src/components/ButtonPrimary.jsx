@@ -3,14 +3,25 @@ import React from 'react';
 const ButtonPrimary = (props) => {
   const {
     onClick,
+    isLink,
+    href,
     className = '',
     children,
   } = props;
 
-  return (
+  const buttonClass = `buttonPrimary pad-2 border-1 border-radius-md barlow body-small body-bold uppercase condensed ${className}`;
+  return isLink ? (
+    <a
+      href={href}
+      className={buttonClass}
+      target="_blank"
+    >
+      {children}
+    </a>
+  ) : (
     <button
       onClick={onClick}
-      className={`buttonPrimary pad-2 border-1 border-radius-md barlow body-small body-bold uppercase condensed ${className}`}
+      className={buttonClass}
     >
       {children}
     </button>

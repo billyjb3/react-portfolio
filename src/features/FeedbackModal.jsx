@@ -8,11 +8,22 @@ import {
   FormSubmitButton,
 } from '@billyjb3/global-react';
 import { feedbackFormConfig } from '../utils';
+import useMailer from '../services/useMailer';
 
 const FeedbackModal = (props) => {
   const {
     setIsModalOpen,
   } = props;
+  const {
+    isLoading,
+    error,
+    isDone,
+    sendMessage,
+  } = useMailer();
+
+  const handleSubmit = (data) => {
+    sendMessage(data);
+  };
 
   return (
     <Modal
@@ -31,7 +42,7 @@ const FeedbackModal = (props) => {
           <div className="pad-3-b">
             Feedback is important to help me acquire other points of view and to get an idea of what I'm doing well or what I need to improve. Use the form below to leave any feedback you may have. Feedback submissions are completely anonymous and all feedback is welcome, so feel free to be honest!
           </div>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             {feedbackFormConfig.map((config) => (
               <FormIntegratedLabelTextInput {...config} />
             ))}

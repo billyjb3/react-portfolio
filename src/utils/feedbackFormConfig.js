@@ -10,7 +10,7 @@ import {
 export const feedbackFormConfig = [
   {
     id: 'feedbackInput',
-    requestKey: 'feedback',
+    requestKey: 'feedbackMessage',
     label: 'Feedback *',
     isRequired: true,
     isTextArea: true,
