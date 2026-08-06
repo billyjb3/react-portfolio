@@ -26,7 +26,8 @@
     ]
   },
   "dependencies": {
-    "@billyjb3/global-styles": "^0.1.0",
+    "@billyjb3/global-react": "^1.1.0",
+    "@billyjb3/global-styles": "^1.0.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-helmet-async": "^3.0.0",

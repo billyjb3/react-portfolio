@@ -19,6 +19,7 @@ import IconDockRight from './IconDockRight';
 import IconDockLeft from './IconDockLeft';
 import IconDockTop from './IconDockTop';
 import IconGear from './IconGear';
+import IconPortfolioLogo from './IconPortfolioLogo';
 
 export {
   IconJavascript,
@@ -42,4 +43,5 @@ export {
   IconDockLeft,
   IconDockTop,
   IconGear,
+  IconPortfolioLogo,
 };

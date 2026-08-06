@@ -18,6 +18,7 @@ import {
   IconLinkedin,
   IconGithub,
   IconGmail,
+  IconPortfolioLogo,
 } from '../../icons';
 import { heroId, projectsId, contactId } from './navConfig';
 import { useHomeContext } from './homeContext';
@@ -42,6 +43,9 @@ const HeroSection = (props) => {
         ref={sectionRef}
         className="content-container margin-auto-lr pad-4-tb heroContainer text-align-center"
       >
+        <div className="pad-4-b">
+          <IconPortfolioLogo />
+        </div>
         <Heading level={1} className="uppercase">
           Hello, I'm <span className="color-text-accent">Billy</span>
         </Heading>

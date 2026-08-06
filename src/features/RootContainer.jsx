@@ -20,7 +20,7 @@ const RootContainer = () => {
       id="appContainer"
       className="height-page color-text-primary color-bg-primary body"
     >
-      <Router indexRedirect="home">
+      <Router indexRedirect="/home">
         <div className="position-relative flex-grow" id="displaySection">
           <PageRoute path="/home" Component={HomePage} />
           <PageRoute path="/contact" Component={ContactPage} />
