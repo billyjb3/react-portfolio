@@ -1,13 +1,18 @@
 import React from 'react';
 
 const IconSelenium = (props) => {
-  const { size = '48px' } = props;
+  const {
+    size = '48px',
+    ...rest
+  } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 100 100"
       style={{ width: size }}
+      {...rest}
     >
       <path fill="#cf0a2c"
             d="M64.921 62.89c-3.672-.078-6.875 2.656-7.265 6.328q0 .235.234.235h14.063q.234 0 .234-.235c-.312-3.75-3.516-6.562-7.266-6.328"/>

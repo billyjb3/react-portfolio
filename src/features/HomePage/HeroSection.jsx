@@ -23,18 +23,18 @@ import {
 import { heroId, projectsId, contactId } from './navConfig';
 import { useHomeContext } from './homeContext';
 
-const HeroSection = (props) => {
+const HeroSection = () => {
+  const sectionRef = useRef(null);
   const {
     sectionScroller: {
-      registerRef,
+      registerScrollable,
       handleClick: scrollerClick,
     },
-  } = props;
-  const sectionRef = useRef(null);
-  const { pageSettings: { showAnimations } } = useHomeContext();
+    pageSettings: { showAnimations },
+  } = useHomeContext();
 
   useEffect(() => {
-    if (sectionRef.current) registerRef(sectionRef, heroId);
+    if (sectionRef.current) registerScrollable(sectionRef, heroId);
   }, [sectionRef.current]);
 
   return (
@@ -44,7 +44,7 @@ const HeroSection = (props) => {
         className="content-container margin-auto-lr pad-4-tb heroContainer text-align-center"
       >
         <div className="pad-4-b">
-          <IconPortfolioLogo />
+          <IconPortfolioLogo aria-hidden={true} />
         </div>
         <Heading level={1} className="uppercase">
           Hello, I'm <span className="color-text-accent">Billy</span>
@@ -52,47 +52,53 @@ const HeroSection = (props) => {
         <Heading level={2} className="pad-3-t pad-4-b font-weight-6">
           I'm a creative and innovative Front-End Software Engineer.
         </Heading>
+
         <div className="pad-4-t">
           <ButtonPrimary
             isLink={true}
             href="./Billy Brewer Resume - public.pdf"
-            className="margin-1"
+            className="margin-1 color-text-accent"
           >
             Resume
           </ButtonPrimary>
           <ButtonPrimary
-            className="margin-1"
+            className="margin-1 color-text-accent"
             onClick={() => scrollerClick(projectsId)}
           >
             Projects
           </ButtonPrimary>
           <ButtonPrimary
-            className="margin-1"
+            className="margin-1 color-text-accent"
             onClick={() => scrollerClick(contactId)}
           >
             Contact
           </ButtonPrimary>
         </div>
+
         <div className="pad-3-t pad-4-b flex flex-justify-center">
           <ButtonIcon
             isLink={true}
             href="https://www.linkedin.com/in/billyjbrewer3"
+            aria-label="linkedin"
           >
-            <IconLinkedin />
+            <IconLinkedin aria-hidden={true} />
           </ButtonIcon>
           <ButtonIcon
             isLink={true}
             href="https://github.com/billyjb3"
+            aria-label="github"
           >
-            <IconGithub />
+            <IconGithub aria-hidden={true} />
           </ButtonIcon>
           <ButtonIcon
             isLink={true}
             href="mailto:billyjbrewer3@gmail.com"
+            aria-label="gmail"
           >
-            <IconGmail />
+            <IconGmail aria-hidden={true} />
           </ButtonIcon>
         </div>
+
         {showAnimations.value && (
           <Marquee duration={50E3} className="margin-4-t">
             <TechCard Icon={IconJavascript} label="javascript" />

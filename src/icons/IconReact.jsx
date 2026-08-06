@@ -1,13 +1,18 @@
 import React from 'react';
 
 const IconReact = (props) => {
-  const { size = '48px' } = props;
+  const {
+    size = '48px',
+    ...rest
+  } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 100 100"
       style={{ width: size }}
+      {...rest}
     >
       <g clipPath="url(#a)">
         <path fill="#61dafb" d="M50.307 58.816a8.816 8.816 0 1 0 0-17.632 8.816 8.816 0 0 0 0 17.632"/>

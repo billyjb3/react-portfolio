@@ -36,6 +36,7 @@ const SmokePageDivider = (props) => {
         ...(isBottom ? { transform: 'scaleY(-1)' } : {}),
       }}
       preserveAspectRatio="none"
+      aria-hidden={true}
     >
       <g fill="#c0d0f0" strokeWidth="0">
         <path ref={addRef} id="lightTopRight1" opacity=".08" />

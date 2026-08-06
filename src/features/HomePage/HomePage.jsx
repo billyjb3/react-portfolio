@@ -11,7 +11,6 @@ import ContactSection from './ContactSection';
 import SmokePageDivider from '../../svgArt/SmokePageDivider/SmokePageDivider';
 import PuddlePageDivider from '../../svgArt/PuddlePageDivider/PuddlePageDivider';
 import { navConfig } from './navConfig';
-import { useSectionScroller } from '../../hooks';
 import { HomeContext, useHomeContextState } from './homeContext';
 import './styles.scss';
 
@@ -20,7 +19,6 @@ const contentWidth = 1240;
 const HomePage = () => {
   const [navPosition, setNavPosition] = useState('right'); // right top left
   const [showDockOptions, setShowDockOptions] = useState(true);
-  const sectionScroller = useSectionScroller();
   const homeContextState = useHomeContextState();
 
   useEffect(() => {
@@ -52,14 +50,12 @@ const HomePage = () => {
       {navPosition === 'top' || !showDockOptions ? (
         <TopNav
           navConfig={navConfig}
-          sectionScroller={sectionScroller}
           setNavPosition={setDock}
           showDockOptions={showDockOptions}
         />
       ) : (
         <SideNav
           navConfig={navConfig}
-          sectionScroller={sectionScroller}
           isLeft={sideNaveIsLeft}
           setNavPosition={setDock}
           width={sideNavWidth}
@@ -68,21 +64,13 @@ const HomePage = () => {
       {/*<SettingsMenu isRight={sideNaveIsLeft && showDockOptions} />*/}
       <div className="position-relative z-1">
         <SmokePageDivider isBottom={true} />
-        <HeroSection
-          sectionScroller={sectionScroller}
-        />
+        <HeroSection />
         <SmokePageDivider />
-        <AboutSection
-          sectionScroller={sectionScroller}
-        />
+        <AboutSection />
         <SmokePageDivider isBottom={true} />
-        <ProjectsSection
-          sectionScroller={sectionScroller}
-        />
+        <ProjectsSection />
         <SmokePageDivider />
-        <ContactSection
-          sectionScroller={sectionScroller}
-        />
+        <ContactSection />
       </div>
       <Footer className="z-2"/>
     </HomeContext.Provider>

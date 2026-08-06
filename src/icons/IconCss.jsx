@@ -1,13 +1,18 @@
 import React from 'react';
 
 const IconCss = (props) => {
-  const { size = '48px' } = props;
+  const {
+    size = '48px',
+    ...rest
+  } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 100 100"
       style={{ width: size }}
+      {...rest}
     >
       <path fill="#264de4" d="m94.175 0-8.033 89.99L50.034 100l-36.01-9.996L6 0z"/>
       <path fill="#2965f1" d="m79.265 84.26 6.865-76.9H50.088v84.988z"/>

@@ -1,5 +1,5 @@
-@use '../globalStyles/colors' as colors;
-@use '@billyjb3/global-styles' as globals;
+@use '../projectStyles/colors' as colors;
+@use '../projectStyles/globals' as globals;
 
 .glassBackground {
   background: rgba(colors.$colorBgPrimary, .3);

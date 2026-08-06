@@ -1,13 +1,18 @@
 import React from 'react';
 
 const IconGSU = (props) => {
-  const { size = '48px' } = props;
+  const {
+    size = '48px',
+    ...rest
+  } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 90 90"
       style={{ width: size }}
+      {...rest}
     >
       <g clipPath="url(#logoHeader)">
         <path

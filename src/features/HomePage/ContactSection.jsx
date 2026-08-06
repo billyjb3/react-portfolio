@@ -9,10 +9,15 @@ import { IconGmail, IconLinkedin, IconGithub } from '../../icons';
 import { messageFormConfig } from '../../utils';
 import { contactId } from './navConfig';
 import useMailer from '../../services/useMailer';
+import { useHomeContext } from './homeContext';
 
 const ContactSection = (props) => {
-  const { sectionScroller: { registerRef } } = props;
   const sectionRef = useRef(null);
+  const {
+    sectionScroller: {
+      registerScrollable,
+    },
+  } = useHomeContext();
   const {
     isLoading,
     error,
@@ -21,7 +26,7 @@ const ContactSection = (props) => {
   } = useMailer();
 
   useEffect(() => {
-    if (sectionRef.current) registerRef(sectionRef, contactId);
+    if (sectionRef.current) registerScrollable(sectionRef, contactId);
   }, [sectionRef.current]);
 
   const handleSubmit = (formData) => {
@@ -64,7 +69,7 @@ const ContactSection = (props) => {
                 ))}
               </div>
               <div className="pad-3-tb border-t-1 border-fade-r">
-                <FormSubmitButton className="button-primary border-1 border-radius-md pad-2 body-bold color-text-accent">
+                <FormSubmitButton className="button-primary body-bold">
                   Submit
                 </FormSubmitButton>
               </div>
@@ -80,7 +85,7 @@ const ContactSection = (props) => {
             </Heading>
             <div className="pad-3-tb">
               <a href="mailto:billyjbrewer3@gmail.com" className="flex flex-align-center">
-                <IconGmail className="flex-shrink-none" />
+                <IconGmail className="flex-shrink-none" aria-hidden="true" />
                 <span className="pad-3-l">billyjbrewer3@gmail.com</span>
               </a>
             </div>
@@ -91,7 +96,7 @@ const ContactSection = (props) => {
                 className="flex flex-align-center"
                 target="_blank"
               >
-                <IconLinkedin className="flex-shrink-none" />
+                <IconLinkedin className="flex-shrink-none" aria-hidden="true" />
                 <span className="pad-3-l">https://www.linkedin.com/in/billyjbrewer3</span>
               </a>
             </div>
@@ -102,7 +107,7 @@ const ContactSection = (props) => {
                 className="flex flex-align-center"
                 target="_blank"
               >
-                <IconGithub className="flex-shrink-none" />
+                <IconGithub className="flex-shrink-none" aria-hidden="true" />
                 <span className="pad-3-l">https://github.com/billyjb3</span>
               </a>
             </div>

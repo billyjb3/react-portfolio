@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import { useSectionScroller } from '@billyjb3/global-react';
 import { getState as movingParticlesState } from '../BackgroundArt/MovingParticles';
 import { getState as particleWavesState } from '../BackgroundArt/ParticleWaves';
 
@@ -6,6 +7,7 @@ export const HomeContext = createContext({
   backgroundState: {},
   updateBackgroundState: () => {},
   pageSettings: {},
+  sectionScroller: {},
 });
 
 export const useHomeContext = () => useContext(HomeContext);
@@ -23,6 +25,8 @@ const getInitialBackgroundState = () => {
 // TODO: make another settings section for the animated page dividers and make some more variations
 export const useHomeContextState = () => {
   const [backgroundState, setBackgroundState] = useState(getInitialBackgroundState());
+  const sectionScroller = useSectionScroller();
+
   const [pageSettings, setPageSettings] = useState({
     showAnimations: {
       value: true,
@@ -62,5 +66,6 @@ export const useHomeContextState = () => {
     updatePageSetting,
     backgroundState,
     updateBackgroundState,
+    sectionScroller,
   };
 };

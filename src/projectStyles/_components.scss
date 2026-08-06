@@ -1,13 +1,14 @@
-//@use '@billyjb3/global-styles/src/borders' as borders;
-@use '../globalStyles/colors' as colors;
-
-// TODO: figure out how to import the above
+@use 'globals' as globals;
+@use 'colors' as colors;
 
 .button-primary {
-  background-color: colors.$colorBgButtonPrimary;
-  border-color: colors.$colorBorderPrimary;
-  color: colors.$colorTextPrimary;
   min-width: 160px;
+  padding: globals.$space2;
+  background-color: colors.$colorBgButtonPrimary;
+  border: solid globals.$borderSize1;
+  border-radius: globals.$borderRadiusMd;
+  border-color: colors.$colorBorderPrimary;
+  color: colors.$colorTextAccent;
   cursor: pointer;
   transition: color .2s, border-color .2s, background-color .2s;
 }

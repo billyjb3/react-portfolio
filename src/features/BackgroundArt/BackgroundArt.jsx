@@ -76,6 +76,7 @@ const BackgroundArt = () => {
         className=""
         width={w}
         height={h}
+        aria-hidden={true}
       />
     </div>
   );

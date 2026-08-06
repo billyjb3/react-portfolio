@@ -17,14 +17,19 @@ import {
   IconGSU,
 } from '../../icons';
 import { aboutId } from './navConfig';
+import { useHomeContext } from './homeContext';
 
 // TODO: have tech section with a button that can switch between text and icons
-const AboutSection = (props) => {
-  const { sectionScroller: { registerRef } } = props;
+const AboutSection = () => {
   const sectionRef = useRef(null);
+  const {
+    sectionScroller: {
+      registerScrollable,
+    },
+  } = useHomeContext();
 
   useEffect(() => {
-    if (sectionRef.current) registerRef(sectionRef, aboutId);
+    if (sectionRef.current) registerScrollable(sectionRef, aboutId); // TODO: need breakpoints for threshold. Need lower threshold the larger the section gets
   }, [sectionRef.current]);
 
   return (
@@ -61,13 +66,13 @@ const AboutSection = (props) => {
               education
             </Heading>
             <div className="text-align-center display-inline-block pad-2 margin-3-r margin-2-tb border-2 border-radius-md color-border-primary color-bg-surface">
-              <IconGSU />
+              <IconGSU aria-hidden={true} />
               <div className="italic">Georgia Southern University</div>
               <div>BS in Computer Science</div>
               <div>2018</div>
             </div>
             <div className="text-align-center display-inline-block pad-2 margin-2-tb border-2 border-radius-md color-border-primary color-bg-surface">
-              <IconGSU />
+              <IconGSU aria-hidden={true} />
               <div className="italic">Georgia Southern University</div>
               <div>BS in Physics</div>
               <div>2018</div>

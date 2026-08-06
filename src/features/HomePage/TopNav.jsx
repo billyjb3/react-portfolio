@@ -1,42 +1,34 @@
 import React from 'react';
 import { ButtonText } from '../../components';
-import { IconDockLeft, IconDockRight, IconDockTop } from '../../icons';
 import {
-  ButtonIcon,
   StackNav,
   StackNavButton,
   StackNavControl,
   StackNavMenu,
   useBreakpoints,
 } from '@billyjb3/global-react';
+import NavDockController from './NavDockController';
 import { heroId } from './navConfig';
+import { useHomeContext } from './homeContext';
 
 const TopNav = (props) => {
   const {
     navConfig,
-    sectionScroller,
     setNavPosition,
     showDockOptions,
   } = props;
   const { isSmall, isExtraSmall } = useBreakpoints();
   const isSmallDown = isSmall || isExtraSmall;
-  const { currentSection, handleClick } = sectionScroller;
+  const { sectionScroller: { currentSection, handleClick } } = useHomeContext();
 
   return (
     <div className="color-bg-primary border-b-1 border-fade-lr position-sticky-t z-top">
       <div className="position-relative pad-3-tb-md-up pad-1-tb-sm-down pad-3-lr">
         {showDockOptions && (
-          <div className="color-text-primary position-absolute-r flex flex-row">
-            <ButtonIcon onClick={() => setNavPosition('left')}>
-              <IconDockLeft />
-            </ButtonIcon>
-            <ButtonIcon onClick={() => setNavPosition('top')}>
-              <IconDockTop />
-            </ButtonIcon>
-            <ButtonIcon onClick={() => setNavPosition('right')}>
-              <IconDockRight />
-            </ButtonIcon>
-          </div>
+          <NavDockController
+            setNavPosition={setNavPosition}
+            className="color-text-primary position-absolute-r flex flex-row"
+          />
         )}
 
         {isSmallDown ? (

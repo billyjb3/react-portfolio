@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FeedbackModal from '../FeedbackModal';
+import FeedbackModal from './FeedbackModal';
 import { ButtonText } from '../../components';
 
 const Footer = (props) => {

@@ -1,13 +1,9 @@
+@use 'globals';
 @use 'colors';
 @use 'text';
 @use 'borders';
 @use 'layout';
 @use 'components';
-
-$space1: 8px;
-$space2: 16px;
-$space3: 32px;
-$space4: 64px;
 
 body {
   font-family: 'Barlow', sans-serif;

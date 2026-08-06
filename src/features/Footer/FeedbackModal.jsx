@@ -7,8 +7,8 @@ import {
   FormIntegratedLabelTextInput,
   FormSubmitButton,
 } from '@billyjb3/global-react';
-import { feedbackFormConfig } from '../utils';
-import useMailer from '../services/useMailer';
+import { feedbackFormConfig } from '../../utils';
+import useMailer from '../../services/useMailer';
 
 const FeedbackModal = (props) => {
   const {

@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import RootContainer from './features/RootContainer';
 import reportWebVitals from './reportWebVitals';
-import './globalStyles/index.scss';
-import '@billyjb3/global-styles';
+import './projectStyles/index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
