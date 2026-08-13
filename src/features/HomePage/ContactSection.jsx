@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Form,
   FormIntegratedLabelTextInput,
   FormSubmitButton,
+  IconLoadingCircles,
+  useBreakpoints,
 } from '@billyjb3/global-react';
 import { Heading, ContentContainer } from '../../components';
 import { IconGmail, IconLinkedin, IconGithub } from '../../icons';
@@ -11,8 +13,10 @@ import { contactId } from './navConfig';
 import useMailer from '../../services/useMailer';
 import { useHomeContext } from './homeContext';
 
-const ContactSection = (props) => {
+const ContactSection = () => {
   const sectionRef = useRef(null);
+  const clearFormRef = useRef(null);
+  const [formMessage, setFormMessage] = useState('');
   const {
     sectionScroller: {
       registerScrollable,
@@ -24,10 +28,23 @@ const ContactSection = (props) => {
     isDone,
     sendMessage,
   } = useMailer();
+  const { isLarge, isMedium } = useBreakpoints();
+  const isMediumUp = isLarge || isMedium;
 
   useEffect(() => {
     if (sectionRef.current) registerScrollable(sectionRef, contactId);
   }, [sectionRef.current]);
+
+  useEffect(() => {
+    if (!isLoading && isDone) {
+      if (error) {
+        setFormMessage('Message failed to send. Please try again later.');
+      } else {
+        setFormMessage(`Message was sent successfully! I'll get back to you as soon as I can.`);
+        clearFormRef.current?.();
+      }
+    }
+  }, [isLoading, isDone, error]);
 
   const handleSubmit = (formData) => {
     sendMessage(formData);
@@ -57,21 +74,33 @@ const ContactSection = (props) => {
               Feel free to reach out about anything, thoughts, suggestions, questions. I'm also open to doing any freelance work if you think I would be a good choice for a project you need done, lets talk!
             </div>
             <div className="pad-3-b">
-              Fill out the form below, or email me directly and I'll get back to you as soon as I can.
+              Fill out the form below, or email me directly at <span className="color-text-accent">billyjbrewer3@gmail.com</span> and I'll get back to you as soon as I can.
             </div>
             <Form
               onSubmit={handleSubmit}
-              className="row"
+              className=""
+              clearRef={clearFormRef}
             >
-              <div className="col-8-lg">
+              <div className="">
                 {messageFormConfig.map((config) => (
                   <FormIntegratedLabelTextInput {...config} />
                 ))}
               </div>
-              <div className="pad-3-tb border-t-1 border-fade-r">
-                <FormSubmitButton className="button-primary body-bold">
-                  Submit
+              <div className={`pad-3-tb border-t-1 border-fade-r ${isMediumUp ? 'flex flex-justify-between flex-align-center' : ''}`}>
+                <FormSubmitButton
+                  className={`button-primary body-bold ${isLoading ? 'disabled' : ''}`}
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <IconLoadingCircles className="spin" />
+                  ) : 'Submit'}
                 </FormSubmitButton>
+                {formMessage && error && (
+                  <div className="pad-3-l-md-up pad-3-t-sm-down color-text-error">{formMessage}</div>
+                )}
+                {formMessage && !error && (
+                  <div className="pad-3-l-md-up pad-3-t-sm-down color-text-success">{formMessage}</div>
+                )}
               </div>
             </Form>
           </div>
@@ -86,7 +115,7 @@ const ContactSection = (props) => {
             <div className="pad-3-tb">
               <a href="mailto:billyjbrewer3@gmail.com" className="flex flex-align-center">
                 <IconGmail className="flex-shrink-none" aria-hidden="true" />
-                <span className="pad-3-l">billyjbrewer3@gmail.com</span>
+                <span className="pad-3-l">Gmail</span>
               </a>
             </div>
 
@@ -97,7 +126,7 @@ const ContactSection = (props) => {
                 target="_blank"
               >
                 <IconLinkedin className="flex-shrink-none" aria-hidden="true" />
-                <span className="pad-3-l">https://www.linkedin.com/in/billyjbrewer3</span>
+                <span className="pad-3-l">Linkedin</span>
               </a>
             </div>
 
@@ -108,7 +137,7 @@ const ContactSection = (props) => {
                 target="_blank"
               >
                 <IconGithub className="flex-shrink-none" aria-hidden="true" />
-                <span className="pad-3-l">https://github.com/billyjb3</span>
+                <span className="pad-3-l">Github</span>
               </a>
             </div>
           </div>

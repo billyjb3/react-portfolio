@@ -1,7 +1,16 @@
 @use '../../projectStyles/colors' as colors;
+@use '../../projectStyles/globals' as globals;
 
 .heroContainer {
   min-height: 80vh;
+}
+.logo {
+  max-width: 300px;
+}
+@media (max-width: globals.$sm-down) {
+  .logo {
+    max-width: 150px;
+  }
 }
 
 .sectionContainer {

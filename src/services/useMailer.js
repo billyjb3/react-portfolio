@@ -29,6 +29,11 @@ function useMailer() {
       });
   };
 
+  // const sendMessage = () => {
+  //   setIsDone(true);
+  //   setError(true);
+  // }
+
   return {
     isLoading,
     isDone,

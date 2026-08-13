@@ -9,7 +9,6 @@ const IconPortfolioLogo = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      style={{ maxWidth: '300px' }}
       viewBox="0 0 485 430"
       {...rest}
     >

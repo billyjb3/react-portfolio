@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ButtonIcon, Marquee } from '@billyjb3/global-react';
+import { ButtonIcon, Marquee, useBreakpoints } from '@billyjb3/global-react';
 import { Heading, TechCard, ButtonPrimary } from '../../components';
 import {
   IconJavascript,
@@ -32,6 +32,8 @@ const HeroSection = () => {
     },
     pageSettings: { showAnimations },
   } = useHomeContext();
+  const { isSmall, isExtraSmall } = useBreakpoints();
+  const isSmallDown = isSmall || isExtraSmall;
 
   useEffect(() => {
     if (sectionRef.current) registerScrollable(sectionRef, heroId);
@@ -44,7 +46,7 @@ const HeroSection = () => {
         className="content-container margin-auto-lr pad-4-tb heroContainer text-align-center"
       >
         <div className="pad-4-b">
-          <IconPortfolioLogo aria-hidden={true} />
+          <IconPortfolioLogo className="logo" aria-hidden={true} />
         </div>
         <Heading level={1} className="uppercase">
           Hello, I'm <span className="color-text-accent">Billy</span>

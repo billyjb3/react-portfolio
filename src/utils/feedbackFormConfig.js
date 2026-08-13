@@ -17,8 +17,8 @@ export const feedbackFormConfig = [
     containerClass: `${container}`,
     inputClass: `${input}`,
     labelClass: `${label}`,
-    activeLabelClass: `${activeLabel}`,
-    errorClass: `${error}`,
+    activeLabelClass: `color-bg-primary ${activeLabel}`,
+    errorClass: `color-bg-primary ${error}`,
     validations: [requiredCheck],
   },
 ];

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Modal,
   ButtonIcon,
@@ -6,6 +6,7 @@ import {
   Form,
   FormIntegratedLabelTextInput,
   FormSubmitButton,
+  useBreakpoints, IconLoadingCircles,
 } from '@billyjb3/global-react';
 import { feedbackFormConfig } from '../../utils';
 import useMailer from '../../services/useMailer';
@@ -14,12 +15,27 @@ const FeedbackModal = (props) => {
   const {
     setIsModalOpen,
   } = props;
+  const clearFormRef = useRef(null);
+  const [formMessage, setFormMessage] = useState('');
   const {
     isLoading,
     error,
     isDone,
     sendMessage,
   } = useMailer();
+  const { isLarge, isMedium } = useBreakpoints();
+  const isMediumUp = isLarge || isMedium;
+
+  useEffect(() => {
+    if (!isLoading && isDone) {
+      if (error) {
+        setFormMessage('Message failed to send. Please try again later.');
+      } else {
+        setFormMessage('Message was sent successfully! Thanks for your feedback.');
+        clearFormRef.current?.();
+      }
+    }
+  }, [isLoading, error, isDone])
 
   const handleSubmit = (data) => {
     sendMessage(data);
@@ -42,14 +58,25 @@ const FeedbackModal = (props) => {
           <div className="pad-3-b">
             Feedback is important to help me acquire other points of view and to get an idea of what I'm doing well or what I need to improve. Use the form below to leave any feedback you may have. Feedback submissions are completely anonymous and all feedback is welcome, so feel free to be honest!
           </div>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} clearRef={clearFormRef}>
             {feedbackFormConfig.map((config) => (
               <FormIntegratedLabelTextInput {...config} />
             ))}
-            <div className="pad-3-t border-t-1 border-fade-r">
-              <FormSubmitButton className="button-primary border-1 border-radius-md pad-2 body-bold color-text-accent">
-                Submit
+            <div className={`pad-3-t border-t-1 border-fade-r ${isMediumUp ? 'flex flex-justify-between flex-align-center' : ''}`}>
+              <FormSubmitButton
+                className={`button-primary body-bold ${isLoading ? 'disabled' : ''}`}
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <IconLoadingCircles className="spin" />
+                ) : 'Submit'}
               </FormSubmitButton>
+              {formMessage && error && (
+                <div className="pad-3-l-md-up pad-3-t-sm-down color-text-error">{formMessage}</div>
+              )}
+              {formMessage && !error && (
+                <div className="pad-3-l-md-up pad-3-t-sm-down color-text-success">{formMessage}</div>
+              )}
             </div>
           </Form>
         </div>

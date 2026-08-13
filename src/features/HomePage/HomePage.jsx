@@ -9,7 +9,6 @@ import AboutSection from './AboutSection';
 import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
 import SmokePageDivider from '../../svgArt/SmokePageDivider/SmokePageDivider';
-import PuddlePageDivider from '../../svgArt/PuddlePageDivider/PuddlePageDivider';
 import { navConfig } from './navConfig';
 import { HomeContext, useHomeContextState } from './homeContext';
 import './styles.scss';

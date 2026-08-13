@@ -3,7 +3,11 @@
 
 .button-primary {
   min-width: 160px;
-  padding: globals.$space2;
+  min-height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //padding: globals.$space2;
   background-color: colors.$colorBgButtonPrimary;
   border: solid globals.$borderSize1;
   border-radius: globals.$borderRadiusMd;
@@ -16,4 +20,9 @@
   color: colors.$colorTextAccent;
   border-color: colors.$colorBorderFocus;
   background-color: colors.$colorBgButtonPrimaryFocus;
+}
+
+.button-primary.disabled {
+  background-color: colors.$colorBgButtonPrimaryFocus;
+  cursor: auto;
 }

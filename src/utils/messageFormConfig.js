@@ -16,8 +16,8 @@ export const messageFormConfig = [
     containerClass: `${container}`,
     inputClass: `${input}`,
     labelClass: `${label}`,
-    activeLabelClass: `${activeLabel}`,
-    errorClass: `${error}`,
+    activeLabelClass: `color-bg-section ${activeLabel}`,
+    errorClass: `color-bg-section ${error}`,
     validations: [requiredCheck],
   },
   {
@@ -28,8 +28,8 @@ export const messageFormConfig = [
     containerClass: `${container}`,
     inputClass: `${input}`,
     labelClass: `${label}`,
-    activeLabelClass: `${activeLabel}`,
-    errorClass: `${error}`,
+    activeLabelClass: `color-bg-section ${activeLabel}`,
+    errorClass: `color-bg-section ${error}`,
     validations: [requiredCheck],
   },
   {
@@ -41,8 +41,8 @@ export const messageFormConfig = [
     containerClass: `${container}`,
     inputClass: `${input}`,
     labelClass: `${label}`,
-    activeLabelClass: `${activeLabel}`,
-    errorClass: `${error}`,
+    activeLabelClass: `color-bg-section ${activeLabel}`,
+    errorClass: `color-bg-section ${error}`,
     validations: [requiredCheck],
   },
 ];
