@@ -19,6 +19,7 @@ import {
   IconGithub,
   IconGmail,
   IconPortfolioLogo,
+  IconPortfolioLogo2,
 } from '../../icons';
 import { heroId, projectsId, contactId } from './navConfig';
 import { useHomeContext } from './homeContext';
@@ -46,7 +47,7 @@ const HeroSection = () => {
         className="content-container margin-auto-lr pad-4-tb heroContainer text-align-center"
       >
         <div className="pad-4-b">
-          <IconPortfolioLogo className="logo" aria-hidden={true} />
+          <IconPortfolioLogo2 className="logo" aria-hidden={true} />
         </div>
         <Heading level={1} className="uppercase">
           Hello, I'm <span className="color-text-accent">Billy</span>

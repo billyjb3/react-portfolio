@@ -32,13 +32,13 @@ code {
   overflow-y: scroll;
 }
 
-.box-shadow-card {
+.content-container-shadow {
   box-shadow:
-          inset 1px 1px rgba(#fff, .40), // sharp tl light reflection
-          inset -2px -2px 3px rgba(#000, .85), // sharp br shadow
+          inset 1px 1px rgba(colors.$colorBgSurfaceSecondary, .40), // sharp tl light reflection
+          inset -2px -2px 3px rgba(#000, .5), // sharp br shadow
           //0 0 12px 3px rgba(0, 0, 0, .02), // all around shadow
-          6px 6px 18px rgba(#fff, .05), // br main shadow
-          12px 12px 12px rgba(#000, .3),
-          //inset -12px -12px 12px rgba(#fff, .03), // br inset shadow
-          inset 14px 14px 12px rgba(#000, .35); // tl main shadow
+          //6px 6px 18px rgba(colors.$colorBgSurface, .01), // br main shadow
+          12px 12px 12px rgba(#000, .15), // br shadow
+          inset -12px -12px 12px rgba(#fff, .01), // br inset shadow
+          inset 14px 14px 12px rgba(colors.$colorBgPrimary, .6), // tl main shadow
 }

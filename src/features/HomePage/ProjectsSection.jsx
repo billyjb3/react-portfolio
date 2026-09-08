@@ -27,8 +27,11 @@ const ProjectsSection = () => {
         >
           Projects
         </Heading>
-        <ContentContainer className="margin-3-t pad-3 border-radius-lg">
-          <img src="./JBBFencing.png" className="projectImage" aria-hidden={true} />
+        <ContentContainer
+          className="margin-3-t pad-3 border-radius-lg"
+          backgroundClassName="content-container-shadow border-radius-lg"
+        >
+          <img src="./JBBFencing.png" className="projectImage border-radius-md" aria-hidden={true} />
           <Heading level={3} className="pad-3-t">
             JBB Fencing & Site Services ( Under Construction )
           </Heading>
