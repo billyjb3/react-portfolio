@@ -12,6 +12,7 @@ import { messageFormConfig } from '../../utils';
 import { contactId } from './navConfig';
 import useMailer from '../../services/useMailer';
 import { useHomeContext } from './homeContext';
+import { EMAIL_URL, LINKEDIN_URL, GITHUB_URL } from '../../constants';
 
 const ContactSection = () => {
   const sectionRef = useRef(null);
@@ -74,7 +75,7 @@ const ContactSection = () => {
               Feel free to reach out about anything, thoughts, suggestions, questions. I'm also open to doing any freelance work if you think I would be a good choice for a project you need done, lets talk!
             </div>
             <div className="pad-3-b">
-              Fill out the form below, or email me directly at <span className="color-text-accent">billyjbrewer3@gmail.com</span> and I'll get back to you as soon as I can.
+              Fill out the form below, or email me directly at <span className="color-text-accent">{EMAIL_URL}</span> and I'll get back to you as soon as I can.
             </div>
             <Form
               onSubmit={handleSubmit}
@@ -113,7 +114,7 @@ const ContactSection = () => {
               links
             </Heading>
             <div className="pad-3-tb">
-              <a href="mailto:billyjbrewer3@gmail.com" className="flex flex-align-center">
+              <a href={`mailto:${EMAIL_URL}`} className="flex flex-align-center">
                 <IconGmail className="flex-shrink-none" aria-hidden="true" />
                 <span className="pad-3-l">Gmail</span>
               </a>
@@ -121,7 +122,7 @@ const ContactSection = () => {
 
             <div className="pad-3-b">
               <a
-                href="https://www.linkedin.com/in/billyjbrewer3"
+                href={LINKEDIN_URL}
                 className="flex flex-align-center"
                 target="_blank"
               >
@@ -132,7 +133,7 @@ const ContactSection = () => {
 
             <div className="pad-3-b">
               <a
-                href="https://github.com/billyjb3"
+                href={GITHUB_URL}
                 className="flex flex-align-center"
                 target="_blank"
               >

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MAILER_URL } from '../constants';
 
 function useMailer() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +10,7 @@ function useMailer() {
     setIsLoading(true);
     setIsDone(false);
     setError(null);
-    fetch('https://jq738knmxi.execute-api.us-east-1.amazonaws.com/stage01', {
+    fetch(MAILER_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,11 +29,6 @@ function useMailer() {
         setIsDone(true);
       });
   };
-
-  // const sendMessage = () => {
-  //   setIsDone(true);
-  //   setError(true);
-  // }
 
   return {
     isLoading,

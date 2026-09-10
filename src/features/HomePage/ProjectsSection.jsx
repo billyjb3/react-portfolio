@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { Heading, ContentContainer } from '../../components';
 import { projectsId } from './navConfig';
 import { useHomeContext } from './homeContext';
+import { JBB_FENCING_URL, JBB_FENCING_IMAGE } from '../../constants';
 
 const ProjectsSection = () => {
   const sectionRef = useRef(null);
@@ -31,7 +32,12 @@ const ProjectsSection = () => {
           className="margin-3-t pad-3 border-radius-lg"
           backgroundClassName="content-container-shadow border-radius-lg"
         >
-          <img src="./JBBFencing.png" className="projectImage border-radius-md" aria-hidden={true} />
+          <img
+            src={JBB_FENCING_IMAGE}
+            className="projectImage border-radius-md"
+            aria-hidden={true}
+            alt=""
+          />
           <Heading level={3} className="pad-3-t">
             JBB Fencing & Site Services ( Under Construction )
           </Heading>
@@ -43,7 +49,7 @@ const ProjectsSection = () => {
           </div>
           <div className="text-align-center pad-2-b pad-4-t">
             <a
-              href="https://jbbfencing.com"
+              href={JBB_FENCING_URL}
               target="_blank"
               className="heading-5 body-bold"
             >

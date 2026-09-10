@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ButtonIcon, Marquee, useBreakpoints } from '@billyjb3/global-react';
+import { ButtonIcon, Marquee } from '@billyjb3/global-react';
 import { Heading, TechCard, ButtonPrimary } from '../../components';
 import {
   IconJavascript,
@@ -19,10 +19,10 @@ import {
   IconGithub,
   IconGmail,
   IconPortfolioLogo,
-  IconPortfolioLogo2,
 } from '../../icons';
 import { heroId, projectsId, contactId } from './navConfig';
 import { useHomeContext } from './homeContext';
+import { RESUME_URL, LINKEDIN_URL, GITHUB_URL, EMAIL_URL } from '../../constants';
 
 const HeroSection = () => {
   const sectionRef = useRef(null);
@@ -33,8 +33,6 @@ const HeroSection = () => {
     },
     pageSettings: { showAnimations },
   } = useHomeContext();
-  const { isSmall, isExtraSmall } = useBreakpoints();
-  const isSmallDown = isSmall || isExtraSmall;
 
   useEffect(() => {
     if (sectionRef.current) registerScrollable(sectionRef, heroId);
@@ -47,19 +45,20 @@ const HeroSection = () => {
         className="content-container margin-auto-lr pad-4-tb heroContainer text-align-center"
       >
         <div className="pad-4-b">
-          <IconPortfolioLogo2 className="logo" aria-hidden={true} />
+          <IconPortfolioLogo className="logo" aria-hidden={true} />
         </div>
         <Heading level={1} className="uppercase">
           Hello, I'm <span className="color-text-accent">Billy</span>
         </Heading>
-        <Heading level={2} className="pad-3-t pad-4-b font-weight-6">
+        <Heading level={2} className="pad-3-t font-weight-6">
           I'm a creative and innovative Front-End Software Engineer.
         </Heading>
+        <div className="pad-4-b"><span className="color-text-accent">7+</span> years professional experience, with specialization in <span className="color-text-accent">React</span></div>
 
         <div className="pad-4-t">
           <ButtonPrimary
             isLink={true}
-            href="./Billy Brewer Resume - public.pdf"
+            href={RESUME_URL}
             className="margin-1 color-text-accent"
           >
             Resume
@@ -81,21 +80,21 @@ const HeroSection = () => {
         <div className="pad-3-t pad-4-b flex flex-justify-center">
           <ButtonIcon
             isLink={true}
-            href="https://www.linkedin.com/in/billyjbrewer3"
+            href={LINKEDIN_URL}
             aria-label="linkedin"
           >
             <IconLinkedin aria-hidden={true} />
           </ButtonIcon>
           <ButtonIcon
             isLink={true}
-            href="https://github.com/billyjb3"
+            href={GITHUB_URL}
             aria-label="github"
           >
             <IconGithub aria-hidden={true} />
           </ButtonIcon>
           <ButtonIcon
             isLink={true}
-            href="mailto:billyjbrewer3@gmail.com"
+            href={`mailto:${EMAIL_URL}`}
             aria-label="gmail"
           >
             <IconGmail aria-hidden={true} />
