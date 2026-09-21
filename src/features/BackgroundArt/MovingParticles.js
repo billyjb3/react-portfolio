@@ -182,7 +182,7 @@ export class MovingParticles {
         particle.x += dx;
         particle.y += dy;
       }
-      if (particle.x > w || particle.x < 0 || particle.y > h | particle.y < 0) {
+      if (particle.x > w || particle.x < 0 || particle.y > h || particle.y < 0) {
         this.particles[i] = this.getParticle(true);
       }
     });

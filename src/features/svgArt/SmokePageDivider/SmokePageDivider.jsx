@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { useHomeContext } from '../../features/HomePage/homeContext';
+import { useHomeContext } from '../../HomePage/homeContext';
 import animap from './config';
 
 const SmokePageDivider = (props) => {
@@ -39,14 +39,15 @@ const SmokePageDivider = (props) => {
       aria-hidden={true}
     >
       <g fill="#c0d0f0" strokeWidth="0">
+      {/*<g fill="#c0d0ff" strokeWidth="0">*/}
         <path ref={addRef} id="lightTopRight1" opacity=".08" />
         <path ref={addRef} id="lightTopRight2" d="M0 100 H1000V10z" opacity=".08" />
 
         <path ref={addRef} id="lightTopLeft2" d="M1000 100 H0V0z" opacity=".08" />
         <path ref={addRef} id="lightTopLeft2" d="M1000 100 H0V10z" opacity=".08" />
       </g>
-      {/*<g fill="#101215" strokeWidth="0">*/}
       <g fill="#151820" strokeWidth="0">
+      {/*<g fill="#202536" strokeWidth="0">*/}
         <path ref={addRef} id="darkTopRight1" d="M0 100 H1000V25z" opacity=".5" />
         <path ref={addRef} id="darkTopRight2" d="M0 100 H1000V45z" opacity=".1" />
         <path ref={addRef} id="darkTopRight3" d="M0 100 H1000V70z" opacity=".3" />

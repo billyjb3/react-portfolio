@@ -5,7 +5,7 @@ import {
   ButtonIcon,
   SimpleToggleSwitch,
 } from '@billyjb3/global-react';
-import { IconGear } from '../../icons';
+import { IconGear } from '../../components/icons';
 import { useHomeContext } from './homeContext';
 
 // TODO: animate gear icon on hover

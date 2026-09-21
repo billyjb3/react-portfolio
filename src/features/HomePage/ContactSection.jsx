@@ -7,7 +7,7 @@ import {
   useBreakpoints,
 } from '@billyjb3/global-react';
 import { Heading, ContentContainer } from '../../components';
-import { IconGmail, IconLinkedin, IconGithub } from '../../icons';
+import { IconGmail, IconLinkedin, IconGithub } from '../../components/icons';
 import { messageFormConfig } from '../../utils';
 import { contactId } from './navConfig';
 import useMailer from '../../services/useMailer';

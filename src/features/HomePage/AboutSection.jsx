@@ -15,7 +15,7 @@ import {
   IconSelenium,
   IconPixi,
   IconGSU,
-} from '../../icons';
+} from '../../components/icons';
 import { aboutId } from './navConfig';
 import { useHomeContext } from './homeContext';
 

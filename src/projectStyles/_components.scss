@@ -7,22 +7,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  //padding: globals.$space2;
+  flex-grow: 0;
   background-color: colors.$colorBgButtonPrimary;
   border: solid globals.$borderSize1;
   border-radius: globals.$borderRadiusMd;
   border-color: colors.$colorBorderPrimary;
   color: colors.$colorTextAccent;
   cursor: pointer;
-  transition: color .2s, border-color .2s, background-color .2s;
+  transition: color .2s, border-color .2s, background-color .2s, box-shadow .2s, transform .2s;
+  text-decoration: none;
 }
 .button-primary:hover {
   color: colors.$colorTextAccent;
   border-color: colors.$colorBorderFocus;
   background-color: colors.$colorBgButtonPrimaryFocus;
+  box-shadow: 0 0 9px 3px rgba(colors.$colorBgButtonPrimary, .8);
+  transform: translateY(-2px);
 }
 
 .button-primary.disabled {
   background-color: colors.$colorBgButtonPrimaryFocus;
   cursor: auto;
+}
+
+.button-icon {
+  transition: transform .2s;
+}
+.button-icon:hover {
+  transform: translateY(-6px);
 }

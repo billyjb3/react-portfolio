@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { ButtonIcon, Marquee } from '@billyjb3/global-react';
-import { Heading, TechCard, ButtonPrimary } from '../../components';
+import { Heading, TechCard, ButtonPrimary, ButtonIconHoverLabeled } from '../../components';
 import {
   IconJavascript,
   IconReact,
@@ -19,7 +19,7 @@ import {
   IconGithub,
   IconGmail,
   IconPortfolioLogo,
-} from '../../icons';
+} from '../../components/icons';
 import { heroId, projectsId, contactId } from './navConfig';
 import { useHomeContext } from './homeContext';
 import { RESUME_URL, LINKEDIN_URL, GITHUB_URL, EMAIL_URL } from '../../constants';
@@ -55,7 +55,7 @@ const HeroSection = () => {
         </Heading>
         <div className="pad-4-b"><span className="color-text-accent">7+</span> years professional experience, with specialization in <span className="color-text-accent">React</span></div>
 
-        <div className="pad-4-t">
+        <div className="pad-4-t flex flex-justify-center">
           <ButtonPrimary
             isLink={true}
             href={RESUME_URL}
@@ -79,23 +79,29 @@ const HeroSection = () => {
 
         <div className="pad-3-t pad-4-b flex flex-justify-center">
           <ButtonIcon
+            label="Linkedin"
             isLink={true}
             href={LINKEDIN_URL}
             aria-label="linkedin"
+            className="button-icon"
           >
             <IconLinkedin aria-hidden={true} />
           </ButtonIcon>
           <ButtonIcon
+            label="Github"
             isLink={true}
             href={GITHUB_URL}
             aria-label="github"
+            className="button-icon"
           >
             <IconGithub aria-hidden={true} />
           </ButtonIcon>
           <ButtonIcon
+            label="Gmail"
             isLink={true}
             href={`mailto:${EMAIL_URL}`}
             aria-label="gmail"
+            className="button-icon"
           >
             <IconGmail aria-hidden={true} />
           </ButtonIcon>

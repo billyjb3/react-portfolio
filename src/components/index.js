@@ -4,6 +4,7 @@ import ContentContainer from './ContentContainer';
 import TechCard from './TechCard';
 import ButtonPrimary from './ButtonPrimary';
 import ButtonText from './ButtonText';
+import ButtonIconHoverLabeled from './ButtonIconHoverLabeled';
 import './styles.scss';
 
 export {
@@ -13,4 +14,5 @@ export {
   TechCard,
   ButtonPrimary,
   ButtonText,
+  ButtonIconHoverLabeled,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonIcon } from '@billyjb3/global-react';
-import { IconDockLeft, IconDockTop, IconDockRight } from '../../icons';
+import { IconDockLeft, IconDockTop, IconDockRight } from '../../components/icons';
 
 const NavDockController = (props) => {
   const {

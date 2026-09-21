@@ -9,7 +9,7 @@ const ButtonPrimary = (props) => {
     children,
   } = props;
 
-  const buttonClass = `buttonPrimary pad-2 border-1 border-radius-md barlow body-small body-bold uppercase condensed ${className}`;
+  const buttonClass = `button-primary barlow body-small body-bold uppercase condensed ${className}`;
   return isLink ? (
     <a
       href={href}
