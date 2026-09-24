@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FeedbackModal from './FeedbackModal';
-import { ButtonText, ButtonPrimary } from '../../components';
+import { ButtonText } from '../../components';
 import { EMAIL_URL, RESUME_URL } from '../../constants';
 import { useBreakpoints } from '@billyjb3/global-react';
 
@@ -30,7 +30,13 @@ const Footer = (props) => {
                 <span>Billy </span><span className="color-text-accent">Brewer</span>
               </div>
               <div className="body-small">Crafting polished, responsive, and accessible front-end experiences.</div>
-              <ButtonText className="color-text-accent pad-1-tb body-bold underline">Resume</ButtonText>
+              <ButtonText
+                isLink={true}
+                href={RESUME_URL}
+                className="color-text-accent pad-1-tb body-bold body-small underline"
+              >
+                Resume
+              </ButtonText>
               <div className="pad-2-t body-small">{EMAIL_URL}</div>
               <div className="body-small">Statesboro, GA</div>
               <div className="pad-3-t body-small condensed">Made with React · JavaScript · Sass · Vite</div>
@@ -44,7 +50,13 @@ const Footer = (props) => {
                     <span>Billy </span><span className="color-text-accent">Brewer</span>
                   </div>
                   <div className="body-small">Crafting polished, responsive, and accessible front-end experiences.</div>
-                  <ButtonText className="color-text-accent pad-1-tb body-bold underline">Resume</ButtonText>
+                  <ButtonText
+                    isLink={true}
+                    href={RESUME_URL}
+                    className="color-text-accent pad-1-tb body-bold body-small underline"
+                  >
+                    Resume
+                  </ButtonText>
                 </div>
                 <div className="body-small text-align-right">
                   <div className="pad-1-b">{EMAIL_URL}</div>

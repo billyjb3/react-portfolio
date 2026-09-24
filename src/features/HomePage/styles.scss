@@ -70,3 +70,11 @@ $settingsMenuWidth: 300px;
 .settingsMenu.left.open {
   left: 0;
 }
+
+.degreeCard {
+  transition: box-shadow .2s, color .2s;
+}
+.degreeCard:hover {
+  box-shadow: 0 0 9px 3px rgba(colors.$colorBgButtonPrimary, .8);
+  color: colors.$colorTextAccent;
+}

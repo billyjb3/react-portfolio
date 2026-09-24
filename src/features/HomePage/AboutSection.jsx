@@ -65,13 +65,13 @@ const AboutSection = () => {
             >
               education
             </Heading>
-            <div className="text-align-center display-inline-block pad-2 margin-3-r margin-2-tb border-2 border-radius-md color-border-primary color-bg-surface">
+            <div className="text-align-center display-inline-block pad-2 margin-3-r margin-2-tb border-2 border-radius-md color-border-primary color-bg-surface degreeCard">
               <IconGSU aria-hidden={true} />
               <div className="italic">Georgia Southern University</div>
               <div>BS in Computer Science</div>
               <div>2018</div>
             </div>
-            <div className="text-align-center display-inline-block pad-2 margin-2-tb border-2 border-radius-md color-border-primary color-bg-surface">
+            <div className="text-align-center display-inline-block pad-2 margin-2-tb border-2 border-radius-md color-border-primary color-bg-surface degreeCard">
               <IconGSU aria-hidden={true} />
               <div className="italic">Georgia Southern University</div>
               <div>BS in Physics</div>
