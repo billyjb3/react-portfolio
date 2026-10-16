@@ -48,8 +48,8 @@ export const getProps = () => ({
     label: 'Particle Color',
   },
   drawGridDots: {
-    value: true,
-    default: true,
+    value: false,
+    default: false,
     input: 'switch',
     label: 'Draw Grid Dots',
   },

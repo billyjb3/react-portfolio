@@ -55,7 +55,7 @@ const HeroSection = () => {
         </Heading>
         <div className="pad-4-b"><span className="color-text-accent">7+</span> years professional experience, with specialization in <span className="color-text-accent">React</span></div>
 
-        <div className="pad-4-t flex flex-justify-center">
+        <div className="pad-4-t flex flex-justify-center flex-wrap">
           <ButtonPrimary
             isLink={true}
             href={RESUME_URL}
@@ -108,7 +108,7 @@ const HeroSection = () => {
         </div>
 
         {showAnimations.value && (
-          <Marquee duration={50E3} className="margin-4-t">
+          <Marquee speed={60} className="margin-4-t">
             <TechCard Icon={IconJavascript} label="javascript" />
             <TechCard Icon={IconReact} label="react" />
             <TechCard Icon={IconHtml} label="html" />

@@ -2,9 +2,7 @@
 
 .heading-1 {
   font-family: 'barlow condensed', sans-serif;
-  //font-size: unquote("clamp(2.6rem, 7vw, 5rem)");
   font-size: clamp(2.6rem, 7vw, 5rem);
-  //line-height: unquote("clamp(2.6rem, 7vw, 5rem)");
   line-height: clamp(2.6rem, 7vw, 6rem);
   font-weight: 800;
   letter-spacing: .03rem;

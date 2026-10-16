@@ -18,6 +18,7 @@ const BackgroundArt = () => {
   useEffect(() => {
     const canvas = canvasRef?.current;
     const context = canvas?.getContext('2d');
+    // const context = canvas?.getContext('webgl2') || canvas?.getContext('webgl');
     if (!context) return;
 
     let width = canvas.width;

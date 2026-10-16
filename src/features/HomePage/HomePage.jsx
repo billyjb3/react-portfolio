@@ -9,7 +9,6 @@ import AboutSection from './AboutSection';
 import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
 import SmokePageDivider from '../svgArt/SmokePageDivider/SmokePageDivider';
-import CityPageDivider from '../svgArt/CityPageDivider/CityPageDivider';
 import { navConfig } from './navConfig';
 import { HomeContext, useHomeContextState } from './homeContext';
 import './styles.scss';
@@ -17,7 +16,7 @@ import './styles.scss';
 const sideNavWidth = 120;
 const contentWidth = 1240;
 const HomePage = () => {
-  const [navPosition, setNavPosition] = useState('right'); // right top left
+  const [navPosition, setNavPosition] = useState('top'); // right top left
   const [showDockOptions, setShowDockOptions] = useState(true);
   const homeContextState = useHomeContextState();
 
@@ -66,7 +65,6 @@ const HomePage = () => {
         <SmokePageDivider isBottom={true} />
         <HeroSection />
         <SmokePageDivider />
-        {/*<CityPageDivider />*/}
         <AboutSection />
         <SmokePageDivider isBottom={true} />
         <ProjectsSection />
